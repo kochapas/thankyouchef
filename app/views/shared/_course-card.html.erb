@@ -1,11 +1,11 @@
 <div class="card-trip mb-3">
   <img src="https://source.unsplash.com/600x300/?food,<%= @title.split.join(',') %>" />
   <div class="card-trip-infos">
-    <div>
+    <div class="card-text-wrap">
       <h2><%= @title %></h2>
       <p><%= @description %></p>
     </div>
-    <h2 class="card-trip-pricing"><%= @price %></h2>
+    <h2 class="card-trip-pricing">$<%= @price / 10 %></h2>
     <img src="https://source.unsplash.com/100x100/?human,chef,<%= rand(100) %>" class="card-trip-user avatar-bordered" />
   </div>
 </div>

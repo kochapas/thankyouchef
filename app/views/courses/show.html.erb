@@ -1,2 +1,7 @@
-<h1>Courses#show</h1>
-<p>Find me in app/views/courses/show.html.erb</p>
+<div class="container">
+  <h1><%= @course.name %></h1>
+  <% @title = @course.name %>
+  <% @description = @course.description %>
+  <% @price = @course.price %>
+  <%= render 'shared/course-card' %>
+</div>
