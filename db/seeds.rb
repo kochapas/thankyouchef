@@ -41,7 +41,7 @@ all_chef = ChefProfile.all
   chef = all_chef.sample while user == chef.user
   course = chef.courses.sample
   booking = Booking.new course: course, user: user, date: Date.today + rand(10),
-                        time_slot: rand(1..3), status: rand(0..3)
+                        time_slot: rand(1..2), status: rand(0..2)
   booking.save!
 end
 
