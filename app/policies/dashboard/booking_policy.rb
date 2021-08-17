@@ -9,5 +9,3 @@ class BookingPolicy < ApplicationPolicy
       true
     end
 end
-
-end
