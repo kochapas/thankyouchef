@@ -14,7 +14,7 @@ module Dashboard
     private
       # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @booking = Booking.find(1)
+      @booking = Booking.find(params[:id])
       authorize @booking
     end
   end
