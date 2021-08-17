@@ -4,6 +4,13 @@
   <% @description = @course.description %>
   <% @price = @course.price %>
   <%= render 'shared/course-card' %>
-  <h2>Book this course</h2>
-  <%= render 'form' %>
+  <% if current_user != @course.chef_profile.user %>
+    <h2>Book this course</h2>
+    <%= render 'form' %>
+  <% else %>
+    <div class="disabled p-3">
+      <h2>This is your own course</h2>
+      <%= render 'form' %>
+    </div>
+  <% end %>
 </div>
