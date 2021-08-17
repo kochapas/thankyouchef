@@ -1,6 +1,6 @@
 <%= simple_form_for [ @course, @booking ] do |f| %>
   <%= f.input :date %>
-  <%= f.input :time_slot %>
-  <%= f.input :status %>
+  <%= f.input :time_slot, collection: ['breakfast', 'lunch', 'dinner'] %>
+  <%# <%= f.hidden :status %> %>
   <%= f.submit "Book", class: "btn btn-primary" %>
 <% end %>
