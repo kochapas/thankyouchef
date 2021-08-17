@@ -20,13 +20,13 @@
       <div class="carousel-inner">
         <%  @courses.each_slice(4) do |s_course| %>
           <div class="carousel-item<%= @courses.first == s_course[0] ? " active" : "" %>">
-            <div class="cards">
+            <div class="cards py-2 px-2">
               <%  s_course.each do |course| %>
                 <% @title = course.name %>
                 <% @description = "" %>
-                <% @price = course.price %>
+                <% @price = "$#{course.price}" %>
                 <%= link_to course_path(course) do %>
-                  <% render 'shared/course-card' %>
+                  <% render 'shared/square-card' %>
                 <% end %>
               <% end %>
               <!-- Add empty card to prevent carousel from collapsing when resize the screen (to keep it 4x1 or 2x2)-->
@@ -60,7 +60,7 @@
               <h2>Chef Name</h2>
               <p>Short description here!</p>
             </div>
-            <h2 class="card-trip-pricing">£99.99</h2>
+            <h2 class="card-trip-text-padding">£99.99</h2>
             <img src="https://source.unsplash.com/100x100/?human,chef,<%= i + 10 %>" class="card-trip-user avatar-bordered" />
           </div>
         </div>
