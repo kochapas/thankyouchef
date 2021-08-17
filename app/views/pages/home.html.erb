@@ -4,7 +4,7 @@
     <form action="/courses">
       <div class="form-group row">
         <div class="col-10">
-          <input type="text" class="form-control" id="query" name="query" value="Authenthic Sushi Tokyo">
+          <input type="text" class="form-control" id="query" name="query" value="" placeholder="Vegan Smoked Bacon">
         </div>
         <div class="col-2 mx-0">
           <input type="submit" class="btn btn-light" value="Search now!">
@@ -15,31 +15,57 @@
 </div>
 <div class="container">
   <h2 class="mt-3">Famous Courses</h2>
-  <div class="cards">
-    <% 5.times do |i| %>
-      <% course = @courses[i] %>
-      <% @title = course.name %>
-      <% @description = "" %>
-      <% @price = course.price %>
-      <%= link_to course_path(course) do %>
-        <% render 'shared/course-card' %>
-      <% end %>
-    <% end %>
+  <div class="my-2">
+    <div id="carouselCourseListControls" class="carousel slide p-2 mb-4 rounded carousel-movie-base" data-ride="carousel">
+      <div class="carousel-inner">
+        <%  @courses.each_slice(4) do |s_course| %>
+          <div class="carousel-item<%= @courses.first == s_course[0] ? " active" : "" %>">
+            <div class="cards">
+              <%  s_course.each do |course| %>
+                <% @title = course.name %>
+                <% @description = "" %>
+                <% @price = course.price %>
+                <%= link_to course_path(course) do %>
+                  <% render 'shared/course-card' %>
+                <% end %>
+              <% end %>
+              <!-- Add empty card to prevent carousel from collapsing when resize the screen (to keep it 4x1 or 2x2)-->
+              <% if s_course.count < 4 %>
+                <% (4 - s_course.count).times do %>
+                  <div class="card-category card-category-bg invisible"></div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <a class="carousel-control-prev small-carousel-btn" href="#carouselCourseListControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next small-carousel-btn" href="#carouselCourseListControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
   </div>
+  <!--
   <h2 class="mt-3">Famous Chefs</h2>
   <div class="cards">
     <% 5.times do |i| %>
       <div class="card-trip">
         <img src="https://source.unsplash.com/300x300/?food,<%= i + 10 %>" />
-        <div class="card-trip-infos">
-          <div>
-            <h2>Chef Name</h2>
-            <p>Short description here!</p>
+          <div class="card-trip-infos">
+            <div>
+              <h2>Chef Name</h2>
+              <p>Short description here!</p>
+            </div>
+            <h2 class="card-trip-pricing">£99.99</h2>
+            <img src="https://source.unsplash.com/100x100/?human,chef,<%= i + 10 %>" class="card-trip-user avatar-bordered" />
           </div>
-          <h2 class="card-trip-pricing">£99.99</h2>
-          <img src="https://source.unsplash.com/100x100/?human,chef,<%= i + 10 %>" class="card-trip-user avatar-bordered" />
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+  -->
 </div>
