@@ -8,4 +8,5 @@ class BookingPolicy < ApplicationPolicy
     def show?
       true
     end
+  end
 end
