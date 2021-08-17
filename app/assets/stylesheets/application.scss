@@ -24,3 +24,11 @@ div.disabled
   opacity: 0.5;
   background: #CCC;
 }
+
+a { 
+  text-decoration: none !important; 
+  color: rgb(180, 0, 0);
+  &:hover {
+    color: rgb(120, 0, 0);
+  }
+}

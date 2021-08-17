@@ -2,8 +2,8 @@
   <h1><%= @course.name %></h1>
   <% @title = @course.name %>
   <% @description = @course.description %>
-  <% @price = @course.price %>
-  <%= render 'shared/course-card' %>
+  <% @price ="$#{@course.price}" %>
+  <%= render 'shared/fullpage-card' %>
   <% if current_user != @course.chef_profile.user %>
     <h2>Book this course</h2>
     <%= render 'form' %>
