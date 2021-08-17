@@ -1,0 +1,33 @@
+=> [[32m#<Course:0x000055b1e8fedcc0[0m
+  id: [1;34m1[0m,
+  name: [31m[1;31m"[0m[31mBakery Fettuccine Alfredo[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mCulver’s Restaurant was founded by the Culver family in 1984, which eventually branched out to more than 300 franchised restaurants all over the US. Culver’s is well-known for its ButterBurger, which made the restaurant extremely famous. They also have other items which include salads, sandwiches, desserts, etc.[1;31m"[0m[31m[0m,
+  cuisine_type: [31m[1;31m"[0m[31m0[1;31m"[0m[31m[0m,
+  duration: [1;34m3600000[0m,
+  price: [1;34m3000[0m,
+  chef_profile_id: [1;34m1[0m,
+  created_at: [1;34;4mTue[0m, [1;34m17[0m [1;34;4mAug[0m [1;34m2021[0m [1;34m04[0m:[1;34m11[0m:[1;34m42[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mTue[0m, [1;34m17[0m [1;34;4mAug[0m [1;34m2021[0m [1;34m04[0m:[1;34m11[0m:[1;34m42[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Course:0x000055b1e9dc8f70[0m
+  id: [1;34m2[0m,
+  name: [31m[1;31m"[0m[31mVietnamese Chicken Parm[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mCulver’s Restaurant was founded by the Culver family in 1984, which eventually branched out to more than 300 franchised restaurants all over the US. Culver’s is well-known for its ButterBurger, which made the restaurant extremely famous. They also have other items which include salads, sandwiches, desserts, etc.[1;31m"[0m[31m[0m,
+  cuisine_type: [31m[1;31m"[0m[31m2[1;31m"[0m[31m[0m,
+  duration: [1;34m3600000[0m,
+  price: [1;34m3000[0m,
+  chef_profile_id: [1;34m1[0m,
+  created_at: [1;34;4mTue[0m, [1;34m17[0m [1;34;4mAug[0m [1;34m2021[0m [1;34m04[0m:[1;34m11[0m:[1;34m42[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mTue[0m, [1;34m17[0m [1;34;4mAug[0m [1;34m2021[0m [1;34m04[0m:[1;34m11[0m:[1;34m42[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Course:0x000055b1e9dc8db8[0m
+  id: [1;34m3[0m,
+  name: [31m[1;31m"[0m[31mDesserts Stinky Tofu[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mTo ensure that each guest receives prompt, professional, friendly and courteous service. To maintain a clean, comfortable and well maintained premises for our guests and staff. To provide at a fair price – nutritional, well-prepared meals – using only quality ingredients. To ensure that all guests and staff are treated with the respect and dignity they deserve. To thank each guest for the opportunity to serve them. By maintaining these objectives we shall be assured of a fair profit that will allow us to contribute to the community we serve.[1;31m"[0m[31m[0m,
+  cuisine_type: [31m[1;31m"[0m[31m3[1;31m"[0m[31m[0m,
+  duration: [1;34m10800000[0m,
+  price: [1;34m4000[0m,
+  chef_profile_id: [1;34m1[0m,
+  created_at: [1;34;4mTue[0m, [1;34m17[0m [1;34;4mAug[0m [1;34m2021[0m [1;34m04[0m:[1;34m11[0m:[1;34m42[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mTue[0m, [1;34m17[0m [1;34;4mAug[0m [1;34m2021[0m [1;34m04[0m:[1;34m11[0m:[1;34m42[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m]
