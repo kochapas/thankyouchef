@@ -1,2 +1,49 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner d-flex flex-column justify-content-center">
+  <div class="container">
+    <h1>Browse for courses...</h1>
+    <form action="/courses">
+      <div class="form-group row">
+        <div class="col-10">
+          <input type="text" class="form-control" id="query" name="query" value="Authenthic Sushi Tokyo">
+        </div>
+        <div class="col-2 mx-0">
+          <input type="submit" class="btn btn-light" value="Search now!">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="container">
+  <h2 class="mt-3">Famous Courses</h2>
+  <div class="cards">
+    <% 5.times do |i| %>
+      <div class="card-trip">
+        <img src="https://source.unsplash.com/300x300/?food,<%= i %>" />
+        <div class="card-trip-infos">
+          <div>
+            <h2>Course Name</h2>
+            <p>Short description here!</p>
+          </div>
+          <h2 class="card-trip-pricing">£99.99</h2>
+          <img src="https://source.unsplash.com/100x100/?human,chef,<%= i %>" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h2 class="mt-3">Famous Chefs</h2>
+  <div class="cards">
+    <% 5.times do |i| %>
+      <div class="card-trip">
+        <img src="https://source.unsplash.com/300x300/?food,<%= i + 10 %>" />
+        <div class="card-trip-infos">
+          <div>
+            <h2>Chef Name</h2>
+            <p>Short description here!</p>
+          </div>
+          <h2 class="card-trip-pricing">£99.99</h2>
+          <img src="https://source.unsplash.com/100x100/?human,chef,<%= i + 10 %>" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
