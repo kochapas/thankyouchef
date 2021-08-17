@@ -1,9 +1,9 @@
 <div class="container">
-  <h1><%= current_user.id %>'s Booking</h1>
+  <h1><%= current_user.email %>'s Booking</h1>
   <% @bookings.each do |booking| %>
     <% @title = booking.course.name %>
     <% @description = "#{booking.date} / #{booking.time_slot}" %>
     <% @price = booking.status %>
-    <% render 'shared/course-card' %>
+    <%= render 'shared/course-card' %>
   <% end %>
 </div>
