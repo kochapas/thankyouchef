@@ -8,7 +8,6 @@ module Dashboard
         @chef_bookings = policy_scope(Booking).where(course: current_user.chef_profile.courses).order(created_at: :desc)
         #dashboard/bookings?chefdashboard
       end
-      raise
     end
     def show
     end
