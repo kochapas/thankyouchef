@@ -1,0 +1,5 @@
+<%= simple_form_for [ @course, @booking ] do |f| %>
+  <%= f.input :date %>
+  <%= f.input :time_slot, collection: ['breakfast', 'lunch', 'dinner'] %>
+  <%= f.submit "Book", class: "btn btn-primary w-100" %>
+<% end %>
