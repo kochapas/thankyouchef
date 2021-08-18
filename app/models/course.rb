@@ -11,7 +11,7 @@ class Course < ApplicationRecord
 
   def self.search(keywords)
     if keywords
-      where("name LIKE ?", "%#{keywords}%").order('id DESC')
+      where("name ILIKE ?", "%#{keywords}%").order('id DESC')
     else
       order('id DESC')
     end
