@@ -25,10 +25,10 @@ puts "🍝 Seed courses ..."
   chef_profile = ChefProfile.new user: user, years_exp: i
   chef_profile.save!
   rand(4..6).times do
-    course = Course.new name: "#{Faker::Food.dish} and #{Faker::Food.dish} course",
+    course = Course.new name: "#{Faker::Food.dish} course",
                         description: Faker::Food.description, cuisine_type: CUISINES.sample,
                         chef_profile: chef_profile, duration: rand(1..3) * 3_600_000,
-                        price: rand(1..5) * 2500
+                        price: rand(1..5) * 1500
     course.save!
   end
 end
