@@ -2,7 +2,7 @@
   <h1><%= @course.name %></h1>
   <% @title = @course.name %>
   <% @description = @course.description %>
-  <% @price ="$#{@course.price}" %>
+  <% @price ="¥#{@course.price}" %>
   <% @cuisine_type = @course.cuisine_type %>
   <%= render 'shared/fullpage-card' %>
   <% if current_user != @course.chef_profile.user %>
