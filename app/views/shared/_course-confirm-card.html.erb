@@ -1,17 +1,23 @@
 <div class="card-trip mb-3 d-flex flex-column justify-content-between">
-  <img src="https://source.unsplash.com/800x500/?food-<%= @title.split.join('-') %>" />
+  <img src="https://source.unsplash.com/800x500/?food-<%= booking.course.name.split.join('-') %>" />
   <div class="card-trip-infos">
     <div class="card-text-wrap text-truncate">
-      <h2><%=  @booking.course.name %></h2>
-      <p><%= "#{@booking.date} / #{@booking.time_slot}" %></p>
+      <h2><%=  booking.course.name %></h2>
+      <p><%= "#{booking.date} / #{booking.time_slot}" %></p>
     </div>
-    <%= link_to dashboard_bookings_path(), method: :patch do %>
-      <!-- <% @booking.status = 1 %> -->
-      <h2 class="card-trip-text-padding">Confirm</h2>
-    <% end %>
-    <%= link_to dashboard_bookings_path(), method: :patch do %>
-      <!-- <% @booking.status = 2 %> -->
-      <h2 class="card-trip-text-padding">Decline</h2>
+    <% if booking.status == "awaiting confirmation" %>
+      <div class="d-flex">
+        <%= simple_form_for booking do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'confirmed'} %>
+          <%= f.submit 'Confirm', class: 'btn btn-success btn-sm mx-2' %>
+        <% end %>
+        <%= simple_form_for booking do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'declined'} %>
+          <%= f.submit 'Decline', class: 'btn btn-danger btn-sm' %>
+        <% end %>
+      </div>
+    <% else %>
+      <h2 class="card-trip-text-padding"><%= booking.status %></h2>
     <% end %>
     <img src="https://source.unsplash.com/100x100/?chef-kitchen-<%= rand(100) %>" class="card-trip-user avatar-bordered" />
   </div>
