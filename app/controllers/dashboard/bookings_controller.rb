@@ -3,8 +3,13 @@ module Dashboard
     before_action :set_course, only: [:show, :update, :create]
     def index
       @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :desc)
+      # dashboard/bookings
+      if current_user.chef?
+        @chef_bookings = policy_scope(Booking).where(course: current_user.chef_profile.courses).order(created_at: :desc)
+        #dashboard/bookings?chefdashboard
+      end
+      raise
     end
-
     def show
     end
 
