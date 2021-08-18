@@ -12,27 +12,12 @@ module Dashboard
     def show
     end
 
-    def update
-      @booking = Booking.find(params[:id])
-      if @booking.update(booking_params)
-        # redirect_to # up to you...
-      else
-        # render # where was the booking update form?
-        render 'dashboard/bookings'
-      end
-    end
-
     private
 
     # Use callbacks to share common setup or constraints between actions.
     def set_course
       @booking = Booking.find(params[:id])
       authorize @booking
-    end
-
-    def booking_params
-    # TODO: check your model, might be different than mine
-      params.require(:booking).permit(:date, :time_slot, :status)
     end
   end
 end
