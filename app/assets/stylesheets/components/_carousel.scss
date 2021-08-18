@@ -1,3 +1,13 @@
 .small-carousel-btn {
-  width: 48px;
+  width: 32px;
+  margin: 16px;
+  opacity: 0.8;
+  &:hover{
+    opacity: 1;
+  }
+}
+
+.small-carousel-btn i {
+  font-size: 30px;
+  color: #EEE;
 }

@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 	  resources :bookings, only: [:create]
   end
   namespace :dashboard do
-	  resources :bookings, only: [:index, :update]
+	  resources :bookings, only: [:index]
   end
+  resources :bookings, only: [:update]
   resources :chef_profiles, only: [:show, :create] do
 	  resources :courses, only: [:new, :create]
   end

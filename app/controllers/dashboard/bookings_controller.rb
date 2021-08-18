@@ -1,6 +1,6 @@
 module Dashboard
   class BookingsController < ApplicationController
-    before_action :set_course, only: [:show, :update, :create]
+    before_action :set_course, only: [:show, :update]
     def index
       @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :desc)
       # dashboard/bookings
@@ -10,9 +10,6 @@ module Dashboard
       end
     end
     def show
-    end
-
-    def update
     end
 
     private
