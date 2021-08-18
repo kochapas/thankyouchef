@@ -1,5 +1,9 @@
 <div class="container">
-  <h1>Result of: <%= params[:query] %></h1>
+  <% if params[:query] %>
+    <h1>Result of: <%= params[:query] %></h1>
+  <% else %>
+    <h1>Our courses</h1>
+  <% end %>
   <% @courses.each do |course| %>
     <% @title = course.name %>
     <% @description = course.description %>
