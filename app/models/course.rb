@@ -1,6 +1,7 @@
 class Course < ApplicationRecord
   belongs_to :chef_profile
   has_many :bookings, dependent: :destroy
+  has_many_attached :photos
 
   validates :chef_profile, presence: true
   validates :name, presence: true

@@ -33,6 +33,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'devise'
 gem 'pundit'
+gem 'cloudinary', '~> 1.16.0'
 
 # Custom
 gem 'faker'

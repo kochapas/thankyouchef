@@ -24,4 +24,8 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     authorize @course
   end
+
+  def article_params
+    params.require(:course).permit(:title, :body, photos: [])
+  end
 end
