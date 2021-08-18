@@ -2,7 +2,11 @@ module Dashboard
   class BookingsController < ApplicationController
     before_action :set_course, only: [:show, :update, :create]
     def index
-      @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :desc)
+      if current_user.chef?
+        @chefs_bookings = policy_scope(Booking).where(user: current_user).order(created_at: :desc)
+      else
+        @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :desc)
+      end
     end
 
     def show
