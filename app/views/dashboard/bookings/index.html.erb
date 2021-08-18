@@ -11,6 +11,7 @@
       <% @description = "#{booking.date} / #{booking.time_slot}" %>
       <% @price = booking.status %>
       <% @cuisine_type = booking.course.cuisine_type %>
+      <% @course = booking.course %>
       <%= link_to course_path(booking.course) do %>
         <%= render 'shared/course-card' %>
       <% end %>

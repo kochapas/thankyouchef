@@ -24,6 +24,7 @@
                 <% @title = course.name %>
                 <% @description = "" %>
                 <% @price = "¥#{course.price}" %>
+                <% @course = course %>
                 <%= link_to course_path(course) do %>
                   <% render 'shared/square-card' %>
                 <% end %>
