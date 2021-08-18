@@ -11,7 +11,7 @@ class ChefProfilesController < ApplicationController
     # so that the instance is fully set
     authorize @chef_profile
     if @chef_profile.save
-      redirect_to @chef_profile, notice: 'Restaurant was successfully created.'
+      redirect_to @chef_profile, notice: 'Chef profile was successfully created.'
     else
       render '/'
     end

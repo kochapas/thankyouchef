@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show]
+  before_action :skip_authorization
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @courses = policy_scope(Course).order(created_at: :desc)
@@ -12,7 +13,7 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new(chef_params)
-    @course.user = current_user
+    @course.chef_profile = current_user.chef_profile
     # We run the authorize just before saving
     # so that the instance is fully set
     authorize @course
