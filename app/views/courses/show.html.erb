@@ -3,6 +3,7 @@
   <% @title = @course.name %>
   <% @description = @course.description %>
   <% @price ="$#{@course.price}" %>
+  <% @cuisine_type = @course.cuisine_type %>
   <%= render 'shared/fullpage-card' %>
   <% if current_user != @course.chef_profile.user %>
     <h2>Book this course</h2>

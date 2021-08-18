@@ -8,6 +8,7 @@
     <% @title = course.name %>
     <% @description = course.description %>
     <% @price = "$#{course.price}" %>
+    <% @cuisine_type = course.cuisine_type %>
     <%= link_to course_path(course) do %>
       <% render 'shared/course-card' %>
     <% end %>
