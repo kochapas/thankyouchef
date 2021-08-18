@@ -6,12 +6,13 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     # We run the authorize just before saving
     # so that the instance is fully set
-    @booking.course = Course.find(params[:course_id])
+    @course = Course.find(params[:course_id])
+    @booking.course = @course
     authorize @booking
     if @booking.save
       redirect_to dashboard_bookings_path, notice: 'booking was successfully created.'
     else
-      render :new
+      render 'courses/show'
     end
   end
 

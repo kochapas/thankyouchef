@@ -6,7 +6,7 @@
   <%= render 'shared/fullpage-card' %>
   <% if current_user != @course.chef_profile.user %>
     <h2>Book this course</h2>
-    <%= render 'form' %>
+    <%= render 'bookings/form' %>
   <% else %>
     <div class="disabled p-3">
       <h2>This is your own course</h2>
