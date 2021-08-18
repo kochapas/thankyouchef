@@ -23,7 +23,7 @@
               <%  s_course.each do |course| %>
                 <% @title = course.name %>
                 <% @description = "" %>
-                <% @price = "$#{course.price}" %>
+                <% @price = "¥#{course.price}" %>
                 <%= link_to course_path(course) do %>
                   <% render 'shared/square-card' %>
                 <% end %>

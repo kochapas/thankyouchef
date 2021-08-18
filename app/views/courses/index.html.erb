@@ -7,7 +7,7 @@
   <% @courses.each do |course| %>
     <% @title = course.name %>
     <% @description = course.description %>
-    <% @price = "$#{course.price}" %>
+    <% @price = "¥#{course.price}" %>
     <%= link_to course_path(course) do %>
       <% render 'shared/course-card' %>
     <% end %>
