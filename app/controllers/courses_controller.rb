@@ -3,6 +3,7 @@ class CoursesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @courses = policy_scope(Course).order(created_at: :desc)
+    @courses = @courses.search(params[:query]).order('created_at DESC')
   end
 
   def show
@@ -14,6 +15,8 @@ class CoursesController < ApplicationController
 
   def create
   end
+
+
 
   private
   # Use callbacks to share common setup or constraints between actions.
