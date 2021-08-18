@@ -19,6 +19,6 @@
     <% else %>
       <h2 class="card-trip-text-padding"><%= booking.status %></h2>
     <% end %>
-    <%= cl_image_tag("https://source.unsplash.com/100x100/?face-'#{booking.course.id}'", :type=>"fetch", class: "card-trip-user avatar-bordered") %>
+    <%= cl_image_tag("https://source.unsplash.com/100x100/?face-'#{booking.chef_profile.user_id}'", :type=>"fetch", class: "card-trip-user avatar-bordered") %>
   </div>
 </div>

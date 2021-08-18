@@ -5,6 +5,6 @@
       <h2><%= @title %></h2>
     </div>
     <h2 class="card-trip-text-padding"><%= @price %></h2>
-    <%= cl_image_tag("https://source.unsplash.com/100x100/?face-'#{@course.id}'", :type=>"fetch", class: "card-trip-user avatar-bordered") %>
+    <%= cl_image_tag("https://source.unsplash.com/100x100/?face-'#{@course.chef_profile.user_id}'", :type=>"fetch", class: "card-trip-user avatar-bordered") %>
   </div>
 </div>
