@@ -11,6 +11,16 @@ class CoursesController < ApplicationController
   end
 
   def new
+    @course = Course.new(chef_params)
+    @course.user = current_user
+    # We run the authorize just before saving
+    # so that the instance is fully set
+    authorize @course
+    if @course.save
+      redirect_to @course, notice: 'Course was successfully created.'
+    else
+      render '/'
+    end
   end
 
   def create
@@ -23,5 +33,9 @@ class CoursesController < ApplicationController
   def set_course
     @course = Course.find(params[:id])
     authorize @course
+  end
+
+  def chef_params
+    params.permit(:title, :body, photos: [])
   end
 end
