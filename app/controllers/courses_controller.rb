@@ -1,7 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show]
-  # before_action :skip_authorization
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
   def index
     @courses = policy_scope(Course).order(created_at: :desc)
     @courses = @courses.search(params[:query]).order('created_at DESC')
@@ -19,7 +18,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = Course.new(chef_params)
+    @course = Course.new(course_params)
     @course.chef_profile = current_user.chef_profile
     if @course.save
       redirect_to @course, notice: 'Course was successfully created.'
@@ -28,16 +27,16 @@ class CoursesController < ApplicationController
     end
   end
 
-
-
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_course
     @course = Course.find(params[:id])
     authorize @course
   end
 
-  def chef_params
-    params.permit(:title, :body, photos: [])
+  def course_params
+    params.require(:course).permit(:chef_profile, :name, :description,
+                                   :cuisine_type, :duration, :price, :photo)
   end
 end

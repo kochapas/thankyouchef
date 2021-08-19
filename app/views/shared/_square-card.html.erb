@@ -1,10 +1,10 @@
 <div class="card-trip mb-3 d-flex flex-column justify-content-between">
-  <img src="https://source.unsplash.com/800x500/?food-<%= @title.split[0] %>" />
+  <%= cl_image_tag("https://source.unsplash.com/800x500/?food-'#{@title.split[-2]}'", :type=>"fetch") %>
   <div class="card-trip-infos">
     <div class="card-text-wrap">
       <h2><%= @title %></h2>
     </div>
     <h2 class="card-trip-text-padding"><%= @price %></h2>
-    <img src="https://source.unsplash.com/100x100/?face-<%= rand(100) %>" class="card-trip-user avatar-bordered" />
+    <%= cl_image_tag("https://source.unsplash.com/100x100/?face-'#{@course.chef_profile.user_id}'", :type=>"fetch", class: "card-trip-user avatar-bordered") %>
   </div>
 </div>
