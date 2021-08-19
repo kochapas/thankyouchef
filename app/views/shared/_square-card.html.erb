@@ -1,5 +1,9 @@
 <div class="card-trip mb-3 d-flex flex-column justify-content-between">
-  <%= cl_image_tag("https://source.unsplash.com/800x500/?food-'#{@title.split[-2]}'", :type=>"fetch") %>
+  <% if @course.photo.attached? %>
+    <%= cl_image_tag @course.photo.key %>
+  <% else %>
+    <%= cl_image_tag("https://source.unsplash.com/800x500/?food-'#{@title.split[-2]}'", :type=>"fetch") %>
+  <% end %>
   <div class="card-trip-infos">
     <div class="card-text-wrap">
       <h2><%= @title %></h2>

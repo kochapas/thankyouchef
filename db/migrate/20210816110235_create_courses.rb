@@ -6,6 +6,7 @@ class CreateCourses < ActiveRecord::Migration[6.0]
       t.string :cuisine_type
       t.integer :duration
       t.integer :price
+      t.string :image_url
       t.references :chef_profile, null: false, foreign_key: true
 
       t.timestamps
