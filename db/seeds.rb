@@ -13,6 +13,40 @@ ChefProfile.destroy_all
 Course.destroy_all
 Booking.destroy_all
 
+puts "🧑 Seed hardcoded users ..."
+puts "🔪 Seed chef_profiles ..."
+puts "🍝 Seed courses ..."
+
+USERNAMES = %w[Ryan Tim Alex Eric Robert Nicole Corinne Sarah Courtney]
+USERNAMES.each_with_index do |name, i|
+  user = User.new email: "#{name}@imhungry.com", password: '123456', password_confirmation: '123456'
+  user.save!
+
+  next unless i.even?
+
+  chef_profile = ChefProfile.new user: user, years_exp: i + rand(1..5)
+  chef_profile.save!
+end
+
+course = Course.new name: "#{Faker::Food.dish} course",
+                    description: Faker::Food.description, cuisine_type: CUISINES.sample,
+                    chef_profile: chef_profile, duration: rand(1..3) * 3_600_000,
+                    price: rand(1..5) * 1500
+course.save!
+
+puts "📑 Seed bookings ..."
+all_user = User.all
+all_chef = ChefProfile.all
+30.times do
+  user = all_user.sample
+  chef = all_chef.sample
+  chef = all_chef.sample while user == chef.user
+  course = chef.courses.sample
+  booking = Booking.new course: course, user: user, date: Date.today + rand(10),
+                        time_slot: rand(1..2), status: rand(0..2)
+  booking.save!
+end
+
 puts "🧑 Seed users ..."
 puts "🔪 Seed chef_profiles ..."
 puts "🍝 Seed courses ..."
