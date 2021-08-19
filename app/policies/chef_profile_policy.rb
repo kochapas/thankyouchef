@@ -5,8 +5,16 @@ class ChefProfilePolicy < ApplicationPolicy
     end
   end
 
+  def create?
+    user_is_new_chef?
+  end
+
   def show?
     user_is_chef? && user_is_owner?
+  end
+
+  def agreement?
+    !user_is_chef?
   end
 
   private
@@ -17,5 +25,9 @@ class ChefProfilePolicy < ApplicationPolicy
 
   def user_is_chef?
     user.chef?
+  end
+
+  def user_is_new_chef?
+    user.chef_profile.id.nil?
   end
 end
