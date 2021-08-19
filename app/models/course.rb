@@ -1,5 +1,6 @@
 class Course < ApplicationRecord
   belongs_to :chef_profile
+  # belongs_to :user
   has_many :bookings, dependent: :destroy
   has_one_attached :photo
 
@@ -14,6 +15,9 @@ class Course < ApplicationRecord
     pg_search_scope :search_by_name_and_description,
     # duration
       against: [ :name, :description , :price],
+      associated_against: {
+        user: [ :city, :address ]
+      },
       using: {
         tsearch: { prefix: true } # <-- now `superman batm` will return something!
       }
