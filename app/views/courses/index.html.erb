@@ -6,12 +6,14 @@
   <% end %>
   <% @courses.each do |course| %>
     <%= link_to course_path(course) do %>
+      <% initial = course.chef_profile.user.first_name.nil? ? course.chef_profile.user.email[0].upcase : course.chef_profile.user.first_name[0].upcase; %>
       <% header_image_tag = course.photo.attached? ? cl_image_tag(course.photo.key)
-      : cl_image_tag("https://source.unsplash.com/800x500/?food-'#{course.name.split[-2]}'", :type=>"fetch") %>
+      : cl_image_tag("https://dummyimage.com/1000x500/fff/000&text=Sorry!%20No%20photo%20attached",type: "fetch") %>
+      <% user_image_tag = course.chef_profile.user.photo.attached? ? cl_image_tag(course.chef_profile.user.photo.key, class: "card-trip-user avatar-bordered")
+      : cl_image_tag("https://dummyimage.com/200x200/fff/000&text=#{initial}",type: "fetch", class: "card-trip-user avatar-bordered") %>
       <% render 'shared/course-card', title: course.name, status: "¥#{number_with_delimiter(course.price)}", 
       description: course.description, sub_title: course.cuisine_type,
-      header_image_tag: header_image_tag,
-      user_image_url: "https://source.unsplash.com/100x100/?face-'#{course.chef_profile.user_id}'" %>
+      header_image_tag: header_image_tag, user_image_tag: user_image_tag %>
     <% end %>
   <% end %>
 </div>
