@@ -16,7 +16,7 @@ class BookingPolicy < ApplicationPolicy
     def user_is_owner?
       user == record.course.chef_profile.user
     end
-  
+
     def user_is_chef?
       user.chef?
     end
