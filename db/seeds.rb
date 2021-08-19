@@ -1,5 +1,4 @@
 require "open-uri"
-require "pry-byebug"
 
 CUISINES = %w[chinese italian japanese french belgian american indian ethiopian cuban indonesian filipino]
 
