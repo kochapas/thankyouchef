@@ -1,2 +1,11 @@
-<h1>ChefProfiles#show</h1>
-<p>Find me in app/views/chef_profiles/show.html.erb</p>
+<div class="container">
+  <% chef = @chef_profile %>
+  <h1><%= chef.user.first_name || chef.user.email.split('@')[0] %>'s Profile</h1>
+  <p>Experience: <%= chef.years_exp %> Years</p>
+  <p>Your courses:</p>
+  <% chef.courses.each do |course| %>
+    <%= link_to course_path(course) do %>
+      <li><%= course.name %></li>
+    <% end %>
+  <% end %>
+</div>

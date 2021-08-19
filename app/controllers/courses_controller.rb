@@ -2,6 +2,7 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show]
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
+    # raise
     @courses = policy_scope(Course).order(created_at: :desc)
     @courses = @courses.search(params[:query]).order('created_at DESC')
   end
