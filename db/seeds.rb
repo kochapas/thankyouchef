@@ -103,7 +103,7 @@ course = Course.new name: "Classic Italian Course",
                     description: "Pizza, pasta, panna cotta--what isn't to love
                     in this love letter course to classic Italian cuisine?",
                     cuisine_type: "Italian",
-                    chef_profile: users[2].chef_profile, 2 * duration: 3_600_000,
+                    chef_profile: users[2].chef_profile, duration: 2 * 3_600_000,
                     price: 5500,
                     rating: 4.4
 course.save!
@@ -112,7 +112,7 @@ course = Course.new name: "Fine Dining Course",
                     description: "Set aside some time to dine under candlelight
                     with this elegant and romantic course.",
                     cuisine_type: "French",
-                    chef_profile: users[4].chef_profile, 3 * duration: 3_600_000,
+                    chef_profile: users[4].chef_profile, duration: 3 * 3_600_000,
                     price: 9000,
                     rating: 4.9
 course.save!
@@ -121,7 +121,7 @@ course = Course.new name: "American Steak Course",
                     description: "Make your blood a little redder with this meaty
                     course featuring high-quality steaks and side dishes.",
                     cuisine_type: "American",
-                    chef_profile: users[4].chef_profile, 2 * duration: 3_600_000,
+                    chef_profile: users[4].chef_profile, duration: 2 * 3_600_000,
                     price: 6000,
                     rating: 4.7
 course.save!
@@ -130,7 +130,7 @@ course = Course.new name: "Dainty Dim Sum Course",
                     description: "Enjoy a variety of Dim Sum and other Chinese dishes
                     without the need to fight over the food cart.",
                     cuisine_type: "Chinese",
-                    chef_profile: users[0].chef_profile, 2 * duration: 3_600_000,
+                    chef_profile: users[0].chef_profile, duration: 2 * 3_600_000,
                     price: 4000,
                     rating: 4.6
 course.save!
@@ -139,7 +139,7 @@ course = Course.new name: "Spanish Paella Course",
                     description: "The wait is worth it with this course overflowing
                     with seafood, spices, and sides.",
                     cuisine_type: "Spanish",
-                    chef_profile: users[2].chef_profile, 2 * duration: 3_600_000,
+                    chef_profile: users[2].chef_profile, duration: 3 * 3_600_000,
                     price: 5500,
                     rating: 4.6
 course.save!
@@ -148,7 +148,7 @@ course = Course.new name: "All-Hands Boodle Course",
                     description: "Get your hands dirty with this traditional
                     Filipino meal serving everything from meats to fruits and rice.",
                     cuisine_type: "Filipino",
-                    chef_profile: users[4].chef_profile, 2 * duration: 3_600_000,
+                    chef_profile: users[4].chef_profile, duration: 2 * 3_600_000,
                     price: 4000,
                     rating: 4.6
 course.save!
@@ -222,7 +222,7 @@ puts "🍝 Seed courses ..."
 
   chef_profile = ChefProfile.new user: user, years_exp: i
   chef_profile.save!
-  rand(4..6).times do
+  rand(1..3).times do
     course = Course.new name: "#{Faker::Food.dish} course",
                         description: Faker::Food.description, cuisine_type: CUISINES.sample,
                         chef_profile: chef_profile, duration: rand(1..3) * 3_600_000,
@@ -250,7 +250,7 @@ User.all.each do |u|
   u.photo.attach(io: file, filename: "#{u.first_name}.png", content_type: 'image/png')
 end
 
-Course.all[5..-1].each do |c|
+Course.all[15..-1].each do |c|
   file = URI.open("https://source.unsplash.com/800x500/?food-'#{c.name.split[-2]}'")
   c.photo.attach(io: file, filename: "#{c.name.split[-2]}.png", content_type: 'image/png')
 end
