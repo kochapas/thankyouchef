@@ -5,6 +5,7 @@
         <div class="cards py-2 px-2">
           <%  s_course.each do |course| %>
             <%= link_to course_path(course) do %>
+              <% initial = course.chef_profile.user.first_name.nil? ? course.chef_profile.user.email[0].upcase : course.chef_profile.user.first_name[0].upcase; %>
               <% header_image_tag = course.photo.attached? ? cl_image_tag(course.photo.key)
                 : cl_image_tag("https://dummyimage.com/1000x500/fff/000&text=Sorry!%20No%20photo%20attached",type: "fetch") %>
               <% user_image_tag = course.chef_profile.user.photo.attached? ? cl_image_tag(course.chef_profile.user.photo.key, class: "card-trip-user avatar-bordered")
