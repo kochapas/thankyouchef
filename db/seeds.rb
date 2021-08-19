@@ -17,9 +17,19 @@ puts "🧑 Seed hardcoded users ..."
 puts "🔪 Seed chef_profiles ..."
 puts "🍝 Seed courses ..."
 
+# even indexed people are chefs [Ryan, Nicole, Beth]
 USERNAMES = %w[Ryan Eric Nicole Sarah Beth]
+FIRST_NAMES = ["Ryan", "Eric", "Nicole", "Sarah", "Beth"]
+LAST_NAMES = ["Fergus", "Shipard", "Welks", "Hague", "Straus"]
+CITIES = %w[Tokyo Osaka Kyoto]
+
 USERNAMES.each_with_index do |name, i|
-  user = User.new email: "#{name}@imhungry.com", password: '123456', password_confirmation: '123456'
+  user = User.new email: "#{name}@imhungry.com",
+                  password: '123456',
+                  password_confirmation: '123456',
+                  first_name: FIRST_NAMES[i],
+                  last_name: LAST_NAMES[i],
+                  city: CITIES[0]
   user.save!
 
   next unless i.even?
@@ -93,7 +103,10 @@ puts "🔪 Seed chef_profiles ..."
 puts "🍝 Seed courses ..."
 
 10.times do |i|
-  user = User.new email: "test#{i}@email.com", password: '123456', password_confirmation: '123456'
+  user = User.new email: "test#{i}@email.com", password: '123456',
+                  password_confirmation: '123456', first_name: Faker::Name.first_name,
+                  last_name: Faker::Name.last_name,
+                  city: CITIES.sample
   user.save!
   next unless i.even?
 

@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2021_08_19_045833) do
     t.string "cuisine_type"
     t.integer "duration"
     t.integer "price"
+    t.string "image_url"
     t.bigint "chef_profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
