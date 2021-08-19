@@ -6,11 +6,6 @@
       description: @course.description, sub_title: @course.cuisine_type,
       header_image_tag: header_image_tag,
       user_image_url: "https://source.unsplash.com/100x100/?face-'#{@course.chef_profile.user_id}'" %>
-  <h1>Brought to you by...</h1>
-  <% chef_name = @course.chef_profile.user.first_name || @course.chef_profile.user.email.split('@')[0] %>
-  <%= render 'shared/chef-information-card', title: chef_name, status: "Neo Tokyo", 
-      sub_title: "#{@course.chef_profile.years_exp} years of experience",
-      header_image_tag: cl_image_tag("https://source.unsplash.com/100x100/?face-'#{@course.chef_profile.user_id}'", :type=>"fetch") %>
   <% if current_user != @course.chef_profile.user %>
     <h2>Book this course</h2>
     <%= render 'bookings/form' %>
@@ -20,4 +15,9 @@
       <%= render 'bookings/form' %>
     </div>
   <% end %>
+  <h2 class="mt-3">Brought to you by...</h2>
+  <% chef_name = @course.chef_profile.user.first_name || @course.chef_profile.user.email.split('@')[0] %>
+  <%= render 'shared/chef-information-card', title: chef_name, status: "Neo Tokyo", 
+      sub_title: "#{@course.chef_profile.years_exp} years of experience",
+      header_image_tag: cl_image_tag("https://source.unsplash.com/100x100/?face-'#{@course.chef_profile.user_id}'", :type=>"fetch") %>
 </div>

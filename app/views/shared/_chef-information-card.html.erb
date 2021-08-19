@@ -3,8 +3,14 @@
   <div class="card-trip-infos">
     <div class="card-text">
       <h2><%= title %></h2>
-      <h4 class="text-capitalize"><%= sub_title %></h3>
+      <p class="text-capitalize"><strong><%= sub_title %></strong></p>
     </div>
     <h2 class="card-trip-text-padding"><%= status %></h2>
+  </div>
+  <div class="card-trip-infos mb-0 pb-0">
+    <h2>More by this chef</h2>
+  </div>
+  <div class="card-trip-infos pt-0">
+    <%= render 'shared/carousel-course', courses: @course.chef_profile.courses,card_count: 4 %>
   </div>
 </div>
