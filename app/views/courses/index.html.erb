@@ -5,13 +5,13 @@
     <h1>Our courses</h1>
   <% end %>
   <% @courses.each do |course| %>
-    <% @title = course.name %>
-    <% @description = course.description %>
-    <% @price = "¥#{course.price}" %>
-    <% @cuisine_type = course.cuisine_type %>
-    <% @course = course %>
     <%= link_to course_path(course) do %>
-      <% render 'shared/course-card' %>
+      <% header_image_tag = course.photo.attached? ? cl_image_tag(course.photo.key)
+      : cl_image_tag("https://source.unsplash.com/800x500/?food-'#{course.name.split[-2]}'", :type=>"fetch") %>
+      <% render 'shared/course-card', title: course.name, status: "¥#{course.price}", 
+      description: course.description, sub_title: course.cuisine_type,
+      header_image_tag: header_image_tag,
+      user_image_url: "https://source.unsplash.com/100x100/?face-'#{course.chef_profile.user_id}'" %>
     <% end %>
   <% end %>
 </div>
