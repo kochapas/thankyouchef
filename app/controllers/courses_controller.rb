@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show]
-  before_action :skip_authorization
+  # before_action :skip_authorization
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @courses = policy_scope(Course).order(created_at: :desc)
