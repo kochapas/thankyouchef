@@ -1,5 +1,5 @@
 <div class="container">
-  <% if params.key? :chefdashboard %>
+  <% if params.key?(:chefdashboard) && current_user.chef? %>
     <h1>Your Chef Dashboard</h1>
     <% @chef_bookings.each do |booking| %>
       <%= render 'shared/course-confirm-card', booking: booking %>

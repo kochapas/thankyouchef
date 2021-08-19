@@ -22,6 +22,6 @@ class ChefProfilesController < ApplicationController
   end
 
   def chef_params
-    params.require(:ChefProfile).permit(:years_exp, :photo)
+    params.require(:chef_profile).permit(:years_exp, :photo)
   end
 end

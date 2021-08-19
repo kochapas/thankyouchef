@@ -9,6 +9,10 @@ class ChefProfilePolicy < ApplicationPolicy
     user_is_chef? && user_is_owner?
   end
 
+  def agreement?
+    !user_is_chef?
+  end
+
   private
 
   def user_is_owner?
