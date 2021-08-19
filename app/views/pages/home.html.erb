@@ -21,12 +21,10 @@
           <div class="carousel-item<%= @courses.first == s_course[0] ? " active" : "" %>">
             <div class="cards py-2 px-2">
               <%  s_course.each do |course| %>
-                <% @title = course.name %>
-                <% @description = "" %>
-                <% @price = "¥#{course.price}" %>
-                <% @course = course %>
                 <%= link_to course_path(course) do %>
-                  <% render 'shared/square-card' %>
+                  <% render 'shared/square-card', title: course.name, status: "¥#{course.price}", 
+                      header_image_url: "https://source.unsplash.com/800x500/?food-'#{course.name.split[-2]}'",
+                      user_image_url: "https://source.unsplash.com/100x100/?face-'#{course.chef_profile.user_id}'" %>
                 <% end %>
               <% end %>
               <!-- Add empty card to prevent carousel from collapsing when resize the screen (to keep it 4x1 or 2x2)-->

@@ -1,12 +1,12 @@
 <div class="card-trip mb-3 d-flex flex-column justify-content-between" id="card-trip-flow">
-  <%= cl_image_tag("https://source.unsplash.com/800x500/?food-'#{@title.split[-2]}'", :type=>"fetch") %>
+  <%= cl_image_tag(header_image_url, :type=>"fetch") %>
   <div class="card-trip-infos">
     <div class="card-text">
-      <h2><%= @title %></h2>
-      <h4 class="text-capitalize"><%= @cuisine_type %></h3>
-      <p><%= @description %></p>
+      <h2><%= title %></h2>
+      <h4 class="text-capitalize"><%= sub_title %></h3>
+      <p><%= description %></p>
     </div>
-    <h2 class="card-trip-text-padding"><%= @price %></h2>
-    <%= cl_image_tag("https://source.unsplash.com/100x100/?face-'#{@course.chef_profile.user_id}'", :type=>"fetch", class: "card-trip-user avatar-bordered") %>
+    <h2 class="card-trip-text-padding"><%= status %></h2>
+    <%= cl_image_tag(user_image_url, :type=>"fetch", class: "card-trip-user avatar-bordered") %>
   </div>
 </div>
