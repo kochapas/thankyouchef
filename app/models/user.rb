@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   has_one :chef_profile
   has_many :bookings
   # Courses booked as a customer (i.e. to eat)
