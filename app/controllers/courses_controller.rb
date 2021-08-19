@@ -2,6 +2,7 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show]
   skip_before_action :authenticate_user!, only: %i[index show]
   def index
+    # raise
     @courses = policy_scope(Course).order(created_at: :desc)
     @courses = @courses.search(params[:query]).order('created_at DESC')
   end
@@ -19,11 +20,13 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
-    @course.chef_profile = current_user.chef_profile
+    authorize @course
+    @chef_profile = current_user.chef_profile
+    @course.chef_profile = @chef_profile
     if @course.save
-      redirect_to @course, notice: 'Course was successfully created.'
+      redirect_to chef_profile_path(@chef_profile), notice: 'Course was successfully created.'
     else
-      redirect_to course_path(@course)
+      redirect_to chef_profile_path(@chef_profile), alert: 'Failed to create course.'
     end
   end
 

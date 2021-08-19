@@ -1,16 +1,12 @@
 <div class="card-trip mb-3 d-flex flex-column justify-content-between">
-  <% if @course.photo.attached? %>
-    <%= cl_image_tag @course.photo.key %>
-  <% else %>
-    <%= cl_image_tag("https://source.unsplash.com/800x500/?food-'#{@title.split[-2]}'", :type=>"fetch") %>
-  <% end %>
+  <%= header_image_tag %>
   <div class="card-trip-infos">
     <div class="card-text-wrap text-truncate">
-      <h2><%= @title %></h2>
-      <p class="text-capitalize"><em><%= @cuisine_type %></em></p>
-      <p><%= @description %></p>
+      <h2><%= title %></h2>
+      <p class="text-capitalize"><em><%= sub_title %></em></p>
+      <p><%= description %></p>
     </div>
-    <h2 class="card-trip-text-padding"><%= @price %></h2>
-    <%= cl_image_tag("https://source.unsplash.com/100x100/?face-'#{@course.chef_profile.user_id}'", :type=>"fetch", class: "card-trip-user avatar-bordered") %>
+    <h2 class="card-trip-text-padding"><%= status %></h2>
+    <%= cl_image_tag(user_image_url, :type=>"fetch", class: "card-trip-user avatar-bordered") %>
   </div>
 </div>
