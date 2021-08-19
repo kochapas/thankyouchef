@@ -8,5 +8,5 @@ class Booking < ApplicationRecord
   # validates :status, presence: true
   validates :user, presence: true, exclusion: { in: ->(booking) { [booking.chef_profile.user] } }
   enum time_slot: ['breakfast', 'lunch', 'dinner']
-  enum status: ['awaiting confirmation', 'confirmed', 'declined']
+  enum status: ['awaiting confirmation', 'confirmed', 'declined', 'completed']
 end

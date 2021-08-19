@@ -10,3 +10,19 @@
     <%= cl_image_tag(user_image_url, :type=>"fetch", class: "card-trip-user avatar-bordered") %>
   </div>
 </div>
+<div class="d-flex">
+  <% if status == 'confirmed' %>
+    <%= simple_form_for booking do |f| %>
+      <%= f.input :status, as: :hidden, input_html: { value: 'completed'} %>
+      <%= f.submit "I'm happy :)", class: 'btn btn-success btn-sm mx-2' %>
+    <% end %>
+    <%= simple_form_for booking do |f| %>
+      <%= f.input :status, as: :hidden, input_html: { value: 'completed'} %>
+      <%= f.submit 'Could be better :|', class: 'btn btn-warning btn-sm mx-2' %>
+    <% end %>
+    <%= simple_form_for booking do |f| %>
+      <%= f.input :status, as: :hidden, input_html: { value: 'completed'} %>
+      <%= f.submit "I'm not impressed :(", class: 'btn btn-danger btn-sm mx-2' %>
+    <% end %>
+  <% end %>
+</div>
