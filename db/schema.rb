@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_08_19_055450) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_08_19_055450) do
     t.string "cuisine_type"
     t.integer "duration"
     t.integer "price"
+    t.string "image_url"
     t.bigint "chef_profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

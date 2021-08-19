@@ -1,4 +1,5 @@
 class Course < ApplicationRecord
+  CUISINES = %w[chinese italian japanese french belgian american indian ethiopian cuban indonesian filipino]
   belongs_to :chef_profile
   # belongs_to :user
   has_many :bookings, dependent: :destroy
