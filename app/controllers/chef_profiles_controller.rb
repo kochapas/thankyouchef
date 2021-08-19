@@ -13,7 +13,8 @@ class ChefProfilesController < ApplicationController
     if @chef_profile.save
       redirect_to @chef_profile, notice: 'Chef profile was successfully created.'
     else
-      render '/'
+      # render '/'
+      redirect_to chef_profile_path(@chef_profile)
     end
   end
 
