@@ -62,9 +62,11 @@ ActiveRecord::Schema.define(version: 2021_08_19_045833) do
     t.string "cuisine_type"
     t.integer "duration"
     t.integer "price"
+    t.string "image_url"
     t.bigint "chef_profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "rating"
     t.index ["chef_profile_id"], name: "index_courses_on_chef_profile_id"
   end
 
@@ -78,6 +80,9 @@ ActiveRecord::Schema.define(version: 2021_08_19_045833) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
+    t.string "avatar_url"
+    t.string "city"
+    t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
