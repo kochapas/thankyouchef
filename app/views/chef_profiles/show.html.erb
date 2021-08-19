@@ -4,8 +4,13 @@
     <h1><%= chef.user.first_name || chef.user.email.split('@')[0] %>'s Profile</h1>
   </div>
   <div class="d-flex justify-content-center align-items-center">
-    <%= cl_image_tag("https://source.unsplash.com/100x100/?face-'#{chef.user_id}'",
-  type: "fetch", class: "rounded-circle") %>
+    <% if chef.user.photo.attached? %>
+      <%= cl_image_tag(chef.user.photo.key, class: "rounded-circle", width: 200, height: 200) %>
+    <% else %>
+      <% initial = chef.user.first_name.nil? ? "X" : chef.user.first_name[0].upcase; %>
+      <%= cl_image_tag("https://dummyimage.com/200x200/fff/000&text=#{initial}",
+      type: "fetch", class: "rounded-circle") %>
+    <% end %>
   </div>
   <p><strong>Experience: </strong><%= chef.years_exp %> Years</p>
   <p><strong>Your courses:</strong></p>

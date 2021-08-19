@@ -11,6 +11,9 @@
         <%= link_to dashboard_bookings_path do %>
           <p class="dropdown-item">My Booking</p>
         <% end %>
+        <%= link_to edit_user_registration_path do %>
+          <p class="dropdown-item">Edit my profile</p>
+        <% end %>
         <% if current_user.chef? %>
           <%= link_to chef_profile_path(current_user.chef_profile) do %>
             <p class="dropdown-item">[Manage my courses]</p>
