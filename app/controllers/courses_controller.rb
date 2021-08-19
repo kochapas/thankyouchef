@@ -2,9 +2,17 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show]
   skip_before_action :authenticate_user!, only: %i[index show]
   def index
-    # raise
-    @courses = policy_scope(Course).order(created_at: :desc)
-    @courses = @courses.search(params[:query]).order('created_at DESC')
+
+    # @courses = policy_scope(Course).order(created_at: :desc)
+    # @courses = @courses.search(params[:query]).order('created_at DESC')
+    if params[:query].present?
+      @courses = policy_scope(Course).order(created_at: :desc)
+      # raise
+      # @courses = @courses.search(params[:query]).order('created_at DESC')
+      @courses = @courses.search_by_name_and_description(params[:query])
+    else
+      @courses = policy_scope(Course).order(created_at: :desc)
+    end
   end
 
   def show

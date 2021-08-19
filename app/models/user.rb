@@ -11,9 +11,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  include PgSearch::Model
+  multisearchable against: [:first_name]
+
   def chef?
     chef_profile.present?
   end
+
+
 
   validates :email, presence: true
   # validates :password, presence: true
