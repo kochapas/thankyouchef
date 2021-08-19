@@ -10,6 +10,14 @@ class Course < ApplicationRecord
   validates :duration, presence: true
   validates :price, presence: true
 
+  include PgSearch::Model
+    pg_search_scope :search_by_name_and_description,
+    # duration
+      against: [ :name, :description , :price],
+      using: {
+        tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      }
+
   def self.search(keywords)
     if keywords
       where("name ILIKE ?", "%#{keywords}%").order('id DESC')
