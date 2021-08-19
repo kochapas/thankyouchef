@@ -17,7 +17,7 @@ puts "🧑 Seed hardcoded users ..."
 puts "🔪 Seed chef_profiles ..."
 puts "🍝 Seed courses ..."
 
-USERNAMES = %w[Ryan Tim Alex Eric Robert Nicole Corinne Sarah Courtney]
+USERNAMES = %w[Ryan Eric Nicole Sarah Beth]
 USERNAMES.each_with_index do |name, i|
   user = User.new email: "#{name}@imhungry.com", password: '123456', password_confirmation: '123456'
   user.save!
@@ -28,10 +28,51 @@ USERNAMES.each_with_index do |name, i|
   chef_profile.save!
 end
 
-course = Course.new name: "#{Faker::Food.dish} course",
-                    description: Faker::Food.description, cuisine_type: CUISINES.sample,
-                    chef_profile: chef_profile, duration: rand(1..3) * 3_600_000,
-                    price: rand(1..5) * 1500
+users = User.all
+
+course = Course.new name: "Traditional Kaiseki Seafood Course",
+                    description: "A 5-course meal featuring locally sourced ingredients
+                    and highlighting a progression of light to rich flavors.",
+                    cuisine_type: "Japanese",
+                    chef_profile: users[0].chef_profile, duration: 3 * 3_600_000,
+                    price: 7500,
+                    image_url: "https://images.unsplash.com/photo-1548285181-3103ce5d3db2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1834&q=80"
+course.save!
+
+course = Course.new name: "Hearty Raclette Course",
+                    description: "Enjoy this Swiss favorite as you indulge in
+                    a variety of vegetables and meat covered with melted cheese.",
+                    cuisine_type: "Swiss",
+                    chef_profile: users[2].chef_profile, duration: 3_600_000,
+                    price: 3500,
+                    image_url: "https://images.unsplash.com/photo-1582883044880-974679bc1f0d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
+course.save!
+
+course = Course.new name: "Japanese Soul Food Course",
+                    description: "Get your comfort-food on with this 'junky' course
+                    featuring ramen, okonomiyaki, and yakitori.",
+                    cuisine_type: "Japanese",
+                    chef_profile: users[2].chef_profile, duration: 2 * 3_600_000,
+                    price: 3500,
+                    image_url: "https://images.unsplash.com/photo-1602273660127-a0000560a4c1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1876&q=80"
+course.save!
+
+course = Course.new name: "Southern Fried Chicken Course",
+                    description: "Some heavy fried goodness with this course,
+                    two full birds and a smattering of sides.",
+                    cuisine_type: "American",
+                    chef_profile: users[4].chef_profile, duration: 3_600_000,
+                    price: 4000,
+                    image_url: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
+course.save!
+
+course = Course.new name: "French Prix Fixe Course",
+                    description: "Dress up and sit down for this upscale dining
+                    experience featuring 4 delicate courses and dessert.",
+                    cuisine_type: "French",
+                    chef_profile: users[4].chef_profile, duration: 3 * 3_600_000,
+                    price: 8500,
+                    image_url: "https://images.unsplash.com/photo-1600663791817-d74f5196ba29?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1834&q=80"
 course.save!
 
 puts "📑 Seed bookings ..."
