@@ -6,7 +6,13 @@ class ChefProfilePolicy < ApplicationPolicy
   end
 
   def show?
-    user_is_chef?
+    user_is_chef? && user_is_owner?
+  end
+
+  private
+
+  def user_is_owner?
+    user.chef_profile == record
   end
 
   def user_is_chef?
