@@ -1,16 +1,22 @@
 .banner {
   // background-color: #888;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), 
-                    url(https://source.unsplash.com/1600x500/daily?chef);
+                    url(https://source.unsplash.com/3000x1000/daily?chef);
   background-position: 50%;
   background-size: cover;
   background-attachment: fixed;
-  height: 350px;
+  height: 72vh;
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-.banner h1 {
+.banner > .container > h1 {
+  color: #eee;
+}
+.banner > .container > h2 {
+  color: #eee;
+}
+.banner > .container > h3 {
   color: #eee;
 }
