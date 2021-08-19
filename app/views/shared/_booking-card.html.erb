@@ -1,0 +1,30 @@
+<div class="card-trip card-trip-overflow mb-3 d-flex flex-column justify-content-between">
+  <%= header_image_tag %>
+  <%= link_to course_path(booking.course) do %>
+    <div class="card-trip-infos">
+      <div class="card-text-wrap text-truncate">
+        <h2><%= title %></h2>
+        <p class="text-capitalize"><em><%= sub_title %></em></p>
+        <p><%= description %></p>
+      </div>
+      <h2 class="card-trip-text-padding"><%= status %></h2>
+      <%= cl_image_tag(user_image_url, :type=>"fetch", class: "card-trip-user avatar-bordered") %>
+    </div>
+  <% end %>
+  <div class="d-flex mb-2 justify-content-end">
+    <% if status == 'confirmed' %>
+      <%= simple_form_for booking do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: 'completed'}, wrapper_html: { class: "py-0 my-0"} %>
+        <%= f.submit "I'm happy :)", class: 'btn btn-success btn-sm mx-2' %>
+      <% end %>
+      <%= simple_form_for booking do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: 'completed'}, wrapper_html: { class: "py-0 my-0"} %>
+        <%= f.submit 'Could be better :|', class: 'btn btn-warning btn-sm mx-2' %>
+      <% end %>
+      <%= simple_form_for booking do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: 'completed'}, wrapper_html: { class: "py-0 my-0"} %>
+        <%= f.submit "I'm not impressed :(", class: 'btn btn-danger btn-sm mx-2' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

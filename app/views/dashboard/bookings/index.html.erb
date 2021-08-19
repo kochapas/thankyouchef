@@ -7,14 +7,12 @@
   <% else %>
     <h1>Your Booking</h1>
     <% @bookings.each do |booking| %>
-      <%= link_to course_path(booking.course) do %>
-        <% header_image_tag = booking.course.photo.attached? ? cl_image_tag(booking.course.photo.key)
+      <% header_image_tag = booking.course.photo.attached? ? cl_image_tag(booking.course.photo.key)
       : cl_image_tag("https://source.unsplash.com/800x500/?food-'#{booking.course.name.split[-2]}'", :type=>"fetch") %>
-        <% render 'shared/course-card', title: booking.course.name, status: booking.status, 
+      <%= render 'shared/booking-card', title: booking.course.name, status: booking.status, 
       description: "#{booking.date} / #{booking.time_slot}", sub_title: booking.course.cuisine_type,
-      header_image_tag: header_image_tag,
+      header_image_tag: header_image_tag, booking: booking,
       user_image_url: "https://source.unsplash.com/100x100/?face-'#{booking.course.chef_profile.user_id}'" %>
-      <% end %>
     <% end %>
   <% end %>
 </div>

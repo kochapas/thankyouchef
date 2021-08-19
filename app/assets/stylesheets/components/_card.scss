@@ -13,12 +13,16 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  height: 250px;
+  height: 264px;
   position: relative;
   transition: box-shadow 0.5s;
   &:hover{
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
   }
+}
+
+.card-trip-overflow {
+  height: fit-content;
 }
 
 .card-trip > img {
