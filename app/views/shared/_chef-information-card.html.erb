@@ -4,9 +4,13 @@
     <div class="card-text">
       <h2><%= title %></h2>
       <p class="text-capitalize"><strong><%= sub_title %></strong></p>
-      <p><%= description %></p>
     </div>
     <h2 class="card-trip-text-padding"><%= status %></h2>
-    <%= cl_image_tag(user_image_url, :type=>"fetch", class: "card-trip-user avatar-bordered") %>
+  </div>
+  <div class="card-trip-infos mb-0 pb-0">
+    <h2>More by this chef</h2>
+  </div>
+  <div class="card-trip-infos pt-0">
+    <%= render 'shared/carousel-course', courses: @course.chef_profile.courses,card_count: 4 %>
   </div>
 </div>

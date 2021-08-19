@@ -1,0 +1,33 @@
+<div id="carouselCourseListControls" class="carousel slide p-2 mb-4 rounded carousel-movie-base" data-ride="carousel">
+  <div class="carousel-inner">
+    <%  courses.each_slice(card_count) do |s_course| %>
+      <div class="carousel-item<%= courses.first == s_course[0] ? " active" : "" %>">
+        <div class="cards py-2 px-2">
+          <%  s_course.each do |course| %>
+            <%= link_to course_path(course) do %>
+              <% header_image_tag = course.photo.attached? ? cl_image_tag(course.photo.key)
+      : cl_image_tag("https://source.unsplash.com/800x500/?food-'#{course.name.split[-2]}'", :type=>"fetch") %>
+              <% render 'shared/square-card', title: course.name, status: "¥#{course.price}", 
+                      header_image_tag: header_image_tag,
+                      user_image_url: "https://source.unsplash.com/100x100/?face-'#{course.chef_profile.user_id}'" %>
+            <% end %>
+          <% end %>
+          <!-- Add empty card to prevent carousel from collapsing when resize the screen (to keep it 4x1 or 2x2)-->
+          <% if s_course.count < card_count %>
+            <% (card_count - s_course.count).times do %>
+              <div class="card-category card-category-bg invisible"></div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <a class="carousel-control-prev small-carousel-btn" href="#carouselCourseListControls" role="button" data-slide="prev">
+    <span class="" aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next small-carousel-btn" href="#carouselCourseListControls" role="button" data-slide="next">
+    <span class="" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
