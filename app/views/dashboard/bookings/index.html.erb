@@ -5,7 +5,7 @@
       <% initial = booking.course.user.first_name.nil? ? booking.course.user.email[0].upcase : booking.course.user.first_name[0].upcase; %>
       <% header_image_tag = booking.course.photo.attached? ? cl_image_tag(booking.course.photo.key)
       : cl_image_tag("https://dummyimage.com/1000x500/fff/000&text=Sorry!%20No%20photo%20attached",type: "fetch") %>
-      <% user_image_tag = booking.course.user.photo.attached? ? cl_image_tag(booking.course.user.photo.key, class: "card-trip-user avatar-bordered", aspect_ratio: "1.0", crop: :thumb)
+      <% user_image_tag = booking.user.photo.attached? ? cl_image_tag(booking.user.photo.key, class: "card-trip-user avatar-bordered", aspect_ratio: "1.0", crop: :thumb)
       : cl_image_tag("https://dummyimage.com/200x200/fff/000&text=#{initial}",type: "fetch", class: "card-trip-user avatar-bordered") %>
       <%= render 'shared/course-confirm-card', booking: booking, header_image_tag: header_image_tag, user_image_tag: user_image_tag %>
     <% end %>
