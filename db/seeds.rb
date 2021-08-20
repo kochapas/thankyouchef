@@ -44,8 +44,8 @@ end
 AVATARS = ["https://images.unsplash.com/photo-1618593706014-06782cd3bb3b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=564&q=80",
            "https://images.unsplash.com/photo-1468218457742-ee484fe2fe4c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1053&q=80",
            "https://images.unsplash.com/photo-1505330375570-be7ea15a6ce9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80",
-           "https://files.slack.com/files-pri/T02NE0241-F02BD0ETNLF/094548a1-e95e-4c42-a4bb-59991d3fb88f_1_105_c.jpeg",
-           "https://files.slack.com/files-pri/T02NE0241-F02BLUKHJCW/130189471_10158132383957945_7624289143793898254_n.jpg"]
+           "https://res.cloudinary.com/tatamimatt/image/upload/v1629441928/094548A1-E95E-4C42-A4BB-59991D3FB88F_1_105_c_irklxr.jpg",
+           "https://res.cloudinary.com/tatamimatt/image/upload/v1629441928/130189471_10158132383957945_7624289143793898254_n_ej75sj.jpg"]
 
 users = User.all
 
