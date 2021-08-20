@@ -14,7 +14,7 @@ puts "🍝 Seed hardcoded courses ..."
 
 # even indexed people are chefs [Ryan, Nicole, Allen]
 USERNAMES = %w[Ryan Eric Nicole Kyle Allen]
-FIRST_NAMES = ["Ryan", "Eric", "Nicole", "Kyle", "Allen"]
+FIRST_NAMES = ["Ryan", "Mew", "Nicole", "Kyle", "Allen"]
 LAST_NAMES = ["Fergus", "Shipard", "Welks", "Barnes", "West"]
 ADDRESS = ["Shibuya", "Shinjuku", "Ginza", "Omotesando", "Odaiba", "Akihabara", "Asakusa",
            "Harajuku", "Shimbashi", "Ikebukuro", "Shimokitazawa", "Marunouchi", "Gaienmae",
@@ -41,9 +41,9 @@ USERNAMES.each_with_index do |name, i|
   chef_profile.save!
 end
 
-AVATARS = ["https://images.unsplash.com/photo-1618593706014-06782cd3bb3b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=564&q=80",
-           "https://images.unsplash.com/photo-1468218457742-ee484fe2fe4c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1053&q=80",
-           "https://images.unsplash.com/photo-1505330375570-be7ea15a6ce9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80",
+AVATARS = ["https://res.cloudinary.com/tatamimatt/image/upload/v1629440490/6egv1ol8tswf443p4y751c8lr3t9.jpg",
+           "https://res.cloudinary.com/tatamimatt/image/upload/v1629442201/000045_yareoh.jpg",
+           "https://res.cloudinary.com/tatamimatt/image/upload/v1629441454/88ebtqsqzng96syfpiyh09k598l8.jpg",
            "https://res.cloudinary.com/tatamimatt/image/upload/v1629441928/094548A1-E95E-4C42-A4BB-59991D3FB88F_1_105_c_irklxr.jpg",
            "https://res.cloudinary.com/tatamimatt/image/upload/v1629441928/130189471_10158132383957945_7624289143793898254_n_ej75sj.jpg"]
 
