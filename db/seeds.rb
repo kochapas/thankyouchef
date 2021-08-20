@@ -47,11 +47,7 @@ AVATARS = ["https://images.unsplash.com/photo-1618593706014-06782cd3bb3b?ixlib=r
            "https://files.slack.com/files-pri/T02NE0241-F02BD0ETNLF/094548a1-e95e-4c42-a4bb-59991d3fb88f_1_105_c.jpeg",
            "https://files.slack.com/files-pri/T02NE0241-F02BLUKHJCW/130189471_10158132383957945_7624289143793898254_n.jpg"]
 
-hardcoded_users = User.all
-
-hardcoded_users.each_with_index do |user|
-
-end
+users = User.all
 
 course = Course.new name: "Traditional Kaiseki Seafood Course",
                     description: "A 5-course meal featuring locally sourced ingredients
@@ -217,6 +213,8 @@ all_chef = ChefProfile.all
   chef = all_chef.sample
   chef = all_chef.sample while user == chef.user
   course = chef.courses.sample
+  date = Date.today + rand(10)
+  time =  rand(15..23)
   booking = Booking.new course: course, user: user, date_and_start_time: "#{date} #{time}:00",
                         status: rand(0..2)
   booking.save!
@@ -260,9 +258,14 @@ all_chef = ChefProfile.all
   booking.save!
 end
 
-User.all[5..-1].each do |u|
+User.all.each do |u|
   file = URI.open("https://thispersondoesnotexist.com/image")
   u.photo.attach(io: file, filename: "#{u.first_name}.png", content_type: 'image/png')
+end
+
+User.where(id: 1..5).each_with_index do |user, i|
+  file = URI.open(AVATARS[i])
+  user.photo.attach(io: file, filename: "#{user.first_name}.png", content_type: 'image/png')
 end
 
 # Course.all[15..-1].each do |c|
