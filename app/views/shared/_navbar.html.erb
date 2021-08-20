@@ -10,7 +10,7 @@
     <% username = current_user.first_name || current_user.email.split('@')[0] %>
     <p class="my-auto">Are you hungry, <%= username %>?</p>
     <% if current_user.photo.attached? %>
-      <% cl_image = cl_image_tag(current_user.photo.key, class: "rounded-circle my-auto", width: 24, height: 24) %>
+      <% cl_image = cl_image_tag(current_user.photo.key, class: "rounded-circle my-auto", width: 24, height: 24, aspect_ratio: "1.0", crop: :thumb) %>
     <% else %>
       <% initial = current_user.first_name.nil? ? chef.user.email[0].upcase : current_user.first_name[0].upcase; %>
       <% cl_image = cl_image_tag("https://dummyimage.com/25x25/fff/000&text=#{initial}",

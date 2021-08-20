@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     authorize @booking
-    if @booking.update(params.require(:booking).permit(:date, :time_slot, :status))
+    if @booking.update(params.require(:booking).permit(:date_and_start_time, :status))
       # redirect_to # up to you...
       redirect_to dashboard_bookings_path + '?chefdashboard'
     else
@@ -29,13 +29,14 @@ class BookingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+  # Use callbacks to share common setup or constraints between actions.
   def set_booking
     # @booking = Booking.find(params[:id])
     # authorize @booking
   end
 
   def booking_params
-    params.require(:booking).permit(:date, :time_slot, :status)
+    params.require(:booking).permit(:date_and_start_time, :status)
   end
 end

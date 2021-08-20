@@ -8,7 +8,7 @@
   <% initial = @course.chef_profile.user.first_name.nil? ? @course.chef_profile.user.email[0].upcase : @course.chef_profile.user.first_name[0].upcase; %>
   <% header_image_tag = @course.photo.attached? ? cl_image_tag(@course.photo.key)
       : cl_image_tag("https://dummyimage.com/1000x500/fff/000&text=Sorry!%20No%20photo%20attached",type: "fetch") %>
-  <% user_image_tag = @course.chef_profile.user.photo.attached? ? cl_image_tag(@course.chef_profile.user.photo.key, class: "card-trip-user avatar-bordered")
+  <% user_image_tag = @course.chef_profile.user.photo.attached? ? cl_image_tag(@course.chef_profile.user.photo.key, class: "card-trip-user avatar-bordered", aspect_ratio: "1.0", crop: :thumb)
       : cl_image_tag("https://dummyimage.com/200x200/fff/000&text=#{initial}",type: "fetch", class: "card-trip-user avatar-bordered") %>
   <%= render 'shared/fullpage-card', title: @course.name, status: "¥#{number_with_delimiter(@course.price)}", 
       description: @course.description, sub_title: @course.cuisine_type,
@@ -24,8 +24,9 @@
     </div>
   <% end %>
   <h2 class="mt-3">Brought to you by...</h2>
+  <% initial = @course.chef_profile.user.first_name.nil? ? @course.chef_profile.user.email[0].upcase : @course.chef_profile.user.first_name[0].upcase; %>
   <% chef_name = @course.chef_profile.user.first_name || @course.chef_profile.user.email.split('@')[0] %>
-  <% header_avatar_tag = @course.chef_profile.user.photo.attached? ? cl_image_tag(@course.chef_profile.user.photo.key, gravity: :face)
+  <% header_avatar_tag = @course.chef_profile.user.photo.attached? ? cl_image_tag(@course.chef_profile.user.photo.key, aspect_ratio: "1.0", crop: :thumb)
       : cl_image_tag("https://dummyimage.com/1000x500/fff/000&text=#{initial}",type: "fetch") %>
   <%= render 'shared/chef-information-card', title: chef_name, status: @course.chef_profile.user.city, 
       sub_title: "#{@course.chef_profile.years_exp} years of experience",
