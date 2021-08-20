@@ -10,13 +10,36 @@ class CoursesController < ApplicationController
       # raise
       # @courses = @courses.search(params[:query]).order('created_at DESC')
       @courses = @courses.search_by_name_and_description(params[:query])
+      # @chef_profile = ChefProfile.all
+      # @chef_profile = @chef_profile.where(id: @courses)
     else
       @courses = policy_scope(Course).order(created_at: :desc)
+    end
+
+    @locations = User.where.not(latitude: nil, longitude: nil)
+    @locations = @locations.joins(:chef_profile)
+    @chef_profile = ChefProfile.all
+    @markers = @locations.geocoded.map do |location| {
+        lat: location.latitude,
+        lng: location.longitude,
+        info_window: render_to_string(partial: "/courses/map_box", locals: { location: location })
+    }
     end
   end
 
   def show
+    @courses = policy_scope(Course).order(created_at: :desc)
     @booking = Booking.new
+    @locations = User.where.not(latitude: nil, longitude: nil)
+    @locations = @course.user
+    @locations = [@locations]
+    @chef_profile = ChefProfile.all
+    @markers = @locations.map do |location| {
+        lat: location.latitude,
+        lng: location.longitude,
+        info_window: render_to_string(partial: "/courses/map_box_chef", locals: { location: location })
+    }
+    end
   end
 
   def new

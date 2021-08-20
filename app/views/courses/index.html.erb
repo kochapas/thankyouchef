@@ -1,4 +1,9 @@
 <div class="container">
+  <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
   <% if params[:query] %>
     <h1>Result of: <%= params[:query] %></h1>
   <% else %>
@@ -8,7 +13,7 @@
     <%= link_to course_path(course) do %>
       <% header_image_tag = course.photo.attached? ? cl_image_tag(course.photo.key)
       : cl_image_tag("https://source.unsplash.com/800x500/?food-'#{course.name.split[-2]}'", :type=>"fetch") %>
-      <% render 'shared/course-card', title: course.name, status: "¥#{course.price}", 
+      <% render 'shared/course-card', title: course.name, status: "¥#{course.price}",
       description: course.description, sub_title: course.cuisine_type,
       header_image_tag: header_image_tag,
       user_image_url: "https://source.unsplash.com/100x100/?face-'#{course.chef_profile.user_id}'" %>
