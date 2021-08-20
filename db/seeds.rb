@@ -41,7 +41,17 @@ USERNAMES.each_with_index do |name, i|
   chef_profile.save!
 end
 
-users = User.all
+AVATARS = ["https://images.unsplash.com/photo-1618593706014-06782cd3bb3b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=564&q=80",
+           "https://images.unsplash.com/photo-1468218457742-ee484fe2fe4c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1053&q=80",
+           "https://images.unsplash.com/photo-1505330375570-be7ea15a6ce9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80",
+           "https://files.slack.com/files-pri/T02NE0241-F02BD0ETNLF/094548a1-e95e-4c42-a4bb-59991d3fb88f_1_105_c.jpeg",
+           "https://files.slack.com/files-pri/T02NE0241-F02BLUKHJCW/130189471_10158132383957945_7624289143793898254_n.jpg"]
+
+hardcoded_users = User.all
+
+hardcoded_users.each_with_index do |user|
+
+end
 
 course = Course.new name: "Traditional Kaiseki Seafood Course",
                     description: "A 5-course meal featuring locally sourced ingredients
@@ -250,7 +260,7 @@ all_chef = ChefProfile.all
   booking.save!
 end
 
-User.all.each do |u|
+User.all[5..-1].each do |u|
   file = URI.open("https://thispersondoesnotexist.com/image")
   u.photo.attach(io: file, filename: "#{u.first_name}.png", content_type: 'image/png')
 end
