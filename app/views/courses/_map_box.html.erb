@@ -1,8 +1,10 @@
-<div class="container">
-  <p class ="mb-0 pb-1"><strong><%= course.name%></strong></p>
-  <p class ="mb-0 pb-1"><strong>Address:</strong><%= course.chef_profile.user.address %></p>
+<div class="container p-3 bg-info">
+  <p class="h4"><strong><%= course.name%></strong></p>
+  <p class ="h6"><strong>Address: </strong><%= course.chef_profile.user.address %></p>
     <%= course.photo.attached? ? cl_image_tag(course.photo.key, height: "100")
       : cl_image_tag("https://dummyimage.com/200x100/fff/000&text=Sorry!%20No%20photo%20attached",type: "fetch") %>
+  <br>
+  <span class="navbar-brand mt-4 h5"><i class="fas fa-glass-cheers"></i> TY, Chef!</span>
 </div>
 
 

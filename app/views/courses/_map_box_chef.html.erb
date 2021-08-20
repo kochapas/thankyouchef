@@ -1,6 +1,6 @@
-<div class="container">
-  <h2><%= location.first_name %> <%= location.last_name %></h2>
-  <p><strong>address: </strong><%= location.address %></p>
+<div class="container p-3 bg-info">
+  <p class="h4"><strong><%= location.first_name %> <%= location.last_name %></strong></p>
+  <p class="h6"><strong>address: </strong><%= location.address %></p>
       <% if location.photo.attached? %>
       <%= cl_image_tag(location.photo.key, class: "rounded-circle", width: 100, height: 100) %>
     <% else %>
@@ -8,6 +8,7 @@
       <%= cl_image_tag("https://dummyimage.com/200x200/fff/000&text=#{initial}",
       type: "fetch", class: "rounded-circle") %>
     <% end %>
+    <span class="navbar-brand mt-4 h5"><i class="fas fa-glass-cheers"></i> TY, Chef!</span>
 </div>
 
 
