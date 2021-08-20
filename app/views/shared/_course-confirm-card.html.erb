@@ -7,7 +7,7 @@
   <div class="card-trip-infos">
     <div class="card-text-wrap text-truncate">
       <h2><%=  booking.course.name %></h2>
-      <p><%= "#{booking.date} / #{booking.time_slot}" %></p>
+      <p><%= booking.date_and_start_time %></p>
     </div>
     <% if booking.status == "awaiting confirmation" %>
       <div class="d-flex">
