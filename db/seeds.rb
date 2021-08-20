@@ -227,7 +227,7 @@ puts "🍝 Seed courses ..."
                         description: Faker::Food.description, cuisine_type: CUISINES.sample,
                         chef_profile: chef_profile, duration: rand(1..3) * 3_600_000,
                         price: rand(1..5) * 1500,
-                        rating: rand(1.0..5.0).round(2)
+                        rating: rand(3.0..4.0).round(2)
     course.save!
   end
 end
