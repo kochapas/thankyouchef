@@ -22,8 +22,6 @@ class User < ApplicationRecord
     chef_profile.present?
   end
 
-
-
   validates :email, presence: true
   # validates :password, presence: true
 end
