@@ -37,7 +37,7 @@
             <%= f.input :cuisine_type, collection: Course::CUISINES.map { |str| str.capitalize }, include_blank: false %>
             <%= f.input :duration, include_blank: false %>
             <%= f.input :price, include_blank: false %>
-            <%= f.input :photo %>
+            <%= f.input :photo, required: true %>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

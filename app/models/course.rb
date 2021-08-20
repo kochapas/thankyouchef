@@ -12,7 +12,7 @@ class Course < ApplicationRecord
   validates :cuisine_type, presence: true
   validates :duration, presence: true
   validates :price, presence: true
-  validates :photo, presence: true
+  # validates :photo, presence: true
 
   include PgSearch::Model
     pg_search_scope :search_by_name_and_description,
