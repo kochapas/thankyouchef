@@ -1,7 +1,13 @@
 <div class="container">
   <h2><%= location.first_name %> <%= location.last_name %></h2>
-  <p><%= location.address %></p>
-  <img src="https://i.nctodo.com/img/cooking-faqs-2018/chef-jobs-and-chef-job-descriptions.jpg">
+  <p><strong>address: </strong><%= location.address %></p>
+      <% if location.photo.attached? %>
+      <%= cl_image_tag(location.photo.key, class: "rounded-circle", width: 100, height: 100) %>
+    <% else %>
+      <% initial = location.first_name.nil? ? location.email[0].upcase : location.first_name[0].upcase; %>
+      <%= cl_image_tag("https://dummyimage.com/200x200/fff/000&text=#{initial}",
+      type: "fetch", class: "rounded-circle") %>
+    <% end %>
 </div>
 
 
