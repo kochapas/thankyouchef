@@ -12,17 +12,17 @@ puts "🧑 Seed hardcoded users ..."
 puts "🔪 Seed hardcoded chef_profiles ..."
 puts "🍝 Seed hardcoded courses ..."
 
-# even indexed people are chefs [Ryan, Nicole, Beth]
+# even indexed people are chefs [Ryan, Nicole, Allen]
 USERNAMES = %w[Ryan Eric Nicole Kyle Allen]
 FIRST_NAMES = ["Ryan", "Eric", "Nicole", "Kyle", "Allen"]
 LAST_NAMES = ["Fergus", "Shipard", "Welks", "Barnes", "West"]
 ADDRESS = ["Shibuya", "Shinjuku", "Ginza", "Omotesando", "Odaiba", "Akihabara", "Asakusa",
-                  "Harajuku", "Shimbashi", "Ikebukuro", "Shimokitazawa", "Marunouchi", "Gaienmae",
-                  "Ebisu", "Yoyogi", "Kichijoji", "Ueno", "Koenji", "Yurakucho", "Nakameguro", "Kasumigaseki",
-                  "Nagatacho", "Shinagawa", "Akasaka-Mitsuke", "Meguro", "Shiodome", "Jimbocho", "Takebashi",
-                  "Sugamo", "Hibiya", "Jiyugaoka", "Kyobashi", "Toranomon", "Aoyama Itchome", "Daikanyama",
-                  "Fukagawa", "Denenchofu", "Hiroo", "Kagurazaka", "Futako Tama", "Sangenjaya", "Tsukiji",
-                  "Gotanda", "Ochanomizu", "Nippori", "Nakano", "Takadanobaba"]
+           "Harajuku", "Shimbashi", "Ikebukuro", "Shimokitazawa", "Marunouchi", "Gaienmae",
+           "Ebisu", "Yoyogi", "Kichijoji", "Ueno", "Koenji", "Yurakucho", "Nakameguro", "Kasumigaseki",
+           "Nagatacho", "Shinagawa", "Akasaka-Mitsuke", "Meguro", "Shiodome", "Jimbocho", "Takebashi",
+           "Sugamo", "Hibiya", "Jiyugaoka", "Kyobashi", "Toranomon", "Aoyama Itchome", "Daikanyama",
+           "Fukagawa", "Denenchofu", "Hiroo", "Kagurazaka", "Futako Tama", "Sangenjaya", "Tsukiji",
+           "Gotanda", "Ochanomizu", "Nippori", "Nakano", "Takadanobaba"]
 CITY = "Tokyo"
 
 USERNAMES.each_with_index do |name, i|
@@ -32,7 +32,7 @@ USERNAMES.each_with_index do |name, i|
                   first_name: FIRST_NAMES[i],
                   last_name: LAST_NAMES[i],
                   city: CITY,
-                  address: ADDRESS.sample
+                  address: "#{ADDRESS.sample}, #{CITY}"
   user.save!
 
   next unless i.even?
@@ -178,7 +178,6 @@ course = Course.new name: "Golden Peking Duck Course",
                     rating: 4.8
 course.save!
 
-
 URLS = ["https://images.unsplash.com/photo-1548285181-3103ce5d3db2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1834&q=80",
         "https://images.unsplash.com/photo-1582883044880-974679bc1f0d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
         "https://images.unsplash.com/photo-1602273660127-a0000560a4c1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1876&q=80",
@@ -208,8 +207,8 @@ all_chef = ChefProfile.all
   chef = all_chef.sample
   chef = all_chef.sample while user == chef.user
   course = chef.courses.sample
-  booking = Booking.new course: course, user: user, date: Date.today + rand(1..10),
-                        time_slot: rand(1..2), status: rand(0..2)
+  booking = Booking.new course: course, user: user, date_and_start_time: "#{date} #{time}:00",
+                        status: rand(0..2)
   booking.save!
 end
 
@@ -222,7 +221,7 @@ puts "🔪 Seed fake chef_profiles ..."
                   password_confirmation: '123456', first_name: Faker::Name.first_name,
                   last_name: Faker::Name.last_name,
                   city: CITY,
-                  address: ADDRESS.sample
+                  address: "#{ADDRESS.sample}, #{CITY}"
   user.save!
   next unless i.even?
 
@@ -244,8 +243,10 @@ all_chef = ChefProfile.all
 15.times do
   user = all_user.sample
   course = Course.all.sample while user == course.chef_profile.user
-  booking = Booking.new course: course, user: user, date: Date.today + rand(10),
-                        time_slot: rand(0..2), status: rand(0..2)
+  date = Date.today + rand(10)
+  time =  rand(15..23)
+  booking = Booking.new course: course, user: user, date_and_start_time: "#{date} #{time}:00",
+                        status: rand(0..2)
   booking.save!
 end
 
