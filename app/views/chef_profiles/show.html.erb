@@ -7,17 +7,19 @@
     <% if chef.user.photo.attached? %>
       <%= cl_image_tag(chef.user.photo.key, class: "rounded-circle", width: 200, height: 200) %>
     <% else %>
-      <% initial = chef.user.first_name.nil? ? "X" : chef.user.first_name[0].upcase; %>
+      <% initial = chef.user.first_name.nil? ? chef.user.email[0].upcase : chef.user.first_name[0].upcase; %>
       <%= cl_image_tag("https://dummyimage.com/200x200/fff/000&text=#{initial}",
       type: "fetch", class: "rounded-circle") %>
     <% end %>
   </div>
   <p><strong>Experience: </strong><%= chef.years_exp %> Years</p>
-  <p><strong>Your courses:</strong></p>
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createCourse">
-    Create New Course
-  </button>
+  <div class="d-flex justify-content-between">
+    <p><strong>Your courses:</strong></p>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#createCourse">
+      Create New Course
+    </button>
+  </div>
   <!-- Modal -->
   <div class="modal fade" id="createCourse" tabindex="-1" aria-labelledby="createCourseLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -35,6 +37,7 @@
             <%= f.input :cuisine_type, collection: Course::CUISINES.map { |str| str.capitalize }, include_blank: false %>
             <%= f.input :duration, include_blank: false %>
             <%= f.input :price, include_blank: false %>
+            <%= f.input :photo %>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -46,7 +49,13 @@
   </div>
   <% chef.courses.each do |course| %>
     <%= link_to course_path(course) do %>
-      <li><%= course.name %></li>
+      <% header_image_tag = course.photo.attached? ? cl_image_tag(course.photo.key)
+      : cl_image_tag("https://dummyimage.com/1000x500/fff/000&text=Sorry!%20No%20photo%20attached",type: "fetch") %>
+      <% user_image_tag = course.chef_profile.user.photo.attached? ? cl_image_tag(course.chef_profile.user.photo.key, class: "card-trip-user avatar-bordered")
+      : cl_image_tag("https://dummyimage.com/200x200/fff/000&text=#{initial}",type: "fetch", class: "card-trip-user avatar-bordered") %>
+      <%= render 'shared/course-card', header_image_tag: header_image_tag, title: course.name,
+      sub_title: course.cuisine_type, description: course.description, status: "¥#{number_with_delimiter(course.price)}",
+      user_image_tag: user_image_tag %>
     <% end %>
   <% end %>
 </div>

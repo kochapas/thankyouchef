@@ -34,7 +34,7 @@ class CoursesController < ApplicationController
     if @course.save
       redirect_to chef_profile_path(@chef_profile), notice: 'Course was successfully created.'
     else
-      redirect_to chef_profile_path(@chef_profile), alert: 'Failed to create course.'
+      redirect_to chef_profile_path(@chef_profile), alert: "Failed to create course. #{@course.errors.full_messages.join(', ')}."
     end
   end
 
