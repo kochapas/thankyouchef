@@ -16,13 +16,14 @@ class CoursesController < ApplicationController
       @courses = policy_scope(Course).order(created_at: :desc)
     end
 
-    @locations = User.where.not(latitude: nil, longitude: nil)
-    @locations = @locations.joins(:chef_profile)
-    @chef_profile = ChefProfile.all
-    @markers = @locations.geocoded.map do |location| {
-        lat: location.latitude,
-        lng: location.longitude,
-        info_window: render_to_string(partial: "/courses/map_box", locals: { location: location })
+    # @locations = User.where.not(latitude: nil, longitude: nil)
+    # @locations = @locations.joins(:chef_profile)
+    # @chef_profile = ChefProfile.all
+    @markers = @courses.map do |course|
+    {
+        lat: course.chef_profile.user.latitude,
+        lng: course.chef_profile.user.longitude,
+        info_window: render_to_string(partial: "/courses/map_box", locals: { course: course })
     }
     end
   end
