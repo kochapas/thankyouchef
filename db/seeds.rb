@@ -13,20 +13,26 @@ puts "🔪 Seed hardcoded chef_profiles ..."
 puts "🍝 Seed hardcoded courses ..."
 
 # even indexed people are chefs [Ryan, Nicole, Beth]
-USERNAMES = %w[Ryan Eric Nicole Sarah Beth]
-FIRST_NAMES = ["Ryan", "Eric", "Nicole", "Sarah", "Beth"]
-LAST_NAMES = ["Fergus", "Shipard", "Welks", "Hague", "Straus"]
-CITIES = %w[Osaka Kyoto Tokyo]
+USERNAMES = %w[Ryan Eric Nicole Kyle Allen]
+FIRST_NAMES = ["Ryan", "Eric", "Nicole", "Kyle", "Allen"]
+LAST_NAMES = ["Fergus", "Shipard", "Welks", "Barnes", "West"]
+ADDRESS = ["Shibuya", "Shinjuku", "Ginza", "Omotesando", "Odaiba", "Akihabara", "Asakusa",
+                  "Harajuku", "Shimbashi", "Ikebukuro", "Shimokitazawa", "Marunouchi", "Gaienmae",
+                  "Ebisu", "Yoyogi", "Kichijoji", "Ueno", "Koenji", "Yurakucho", "Nakameguro", "Kasumigaseki",
+                  "Nagatacho", "Shinagawa", "Akasaka-Mitsuke", "Meguro", "Shiodome", "Jimbocho", "Takebashi",
+                  "Sugamo", "Hibiya", "Jiyugaoka", "Kyobashi", "Toranomon", "Aoyama Itchome", "Daikanyama",
+                  "Fukagawa", "Denenchofu", "Hiroo", "Kagurazaka", "Futako Tama", "Sangenjaya", "Tsukiji",
+                  "Gotanda", "Ochanomizu", "Nippori", "Nakano", "Takadanobaba"]
+CITY = "Tokyo"
 
 USERNAMES.each_with_index do |name, i|
-  location = CITIES.sample
   user = User.new email: "#{name}@imhungry.com",
                   password: '123456',
                   password_confirmation: '123456',
                   first_name: FIRST_NAMES[i],
                   last_name: LAST_NAMES[i],
-                  city: location,
-                  address: location
+                  city: CITY,
+                  address: ADDRESS.sample
   user.save!
 
   next unless i.even?
@@ -202,7 +208,7 @@ all_chef = ChefProfile.all
   chef = all_chef.sample
   chef = all_chef.sample while user == chef.user
   course = chef.courses.sample
-  booking = Booking.new course: course, user: user, date: Date.today + rand(10),
+  booking = Booking.new course: course, user: user, date: Date.today + rand(1..10),
                         time_slot: rand(1..2), status: rand(0..2)
   booking.save!
 end
@@ -212,12 +218,11 @@ puts "🔪 Seed fake chef_profiles ..."
 # puts " Seed fake courses ..."hardcoded
 
 5.times do |i|
-  location = CITIES.sample
   user = User.new email: "test#{i}@email.com", password: '123456',
                   password_confirmation: '123456', first_name: Faker::Name.first_name,
                   last_name: Faker::Name.last_name,
-                  city: location,
-                  address: location
+                  city: CITY,
+                  address: ADDRESS.sample
   user.save!
   next unless i.even?
 
