@@ -1,10 +1,10 @@
-# 📚 Project Name
+# 📚 Thankyou Chef
 
 Project description goes here
 
-_DROP SCREENSHOT HERE_
+![image](https://user-images.githubusercontent.com/79894200/132184516-facae8a1-b478-4b69-ac29-4edd43dd5518.png)
 <br>
-App home: https://WHATEVER.herokuapp.com
+App home: https://thankyouchef.herokuapp.com/
    
 
 ## Getting Started
@@ -54,6 +54,8 @@ Inspired by Jane Mount's [Bibliophile](https://www.amazon.com/Bibliophile-Illust
 
 ## Team Members
 - [Kandanai Leenutaphong](https://www.linkedin.com/in/kandanai/)
+- [kochapas Santibut]
+- [Kyle Bailey]
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
