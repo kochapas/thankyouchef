@@ -26,8 +26,8 @@ touch .env
 ```
 Inside `.env`, set these variables. For any APIs, see group Slack channel.
 ```
-CLOUDINARY_URL=cloudinary://931914661415413:cvLp2nplJErzchjGk_d6ztvGUiU@le-wagon-tokyo
-MAPBOX_API_KEY=pk.eyJ1IjoidTE4MDAwODUiLCJhIjoiY2tycHZrYWl6MmgyYjJ1cnZzaGwzaGQ3NCJ9.hiTrxbzVI1IvrjmTpT60Pg
+CLOUDINARY_URL=***
+MAPBOX_API_KEY=***
 ```
 
 ### DB Setup
