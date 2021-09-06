@@ -1,6 +1,6 @@
 # 📚 Thankyouchef
 
-Project description goes here
+Hire your own personal Gordon Ramsay, without the yelling.
 
 ![image](https://user-images.githubusercontent.com/79894200/132184516-facae8a1-b478-4b69-ac29-4edd43dd5518.png)
 <br>
