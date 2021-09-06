@@ -55,8 +55,8 @@ Inspired by Jane Mount's [Bibliophile](https://www.amazon.com/Bibliophile-Illust
 
 ## Team Members
 - [Kandanai Leenutaphong](https://www.linkedin.com/in/kandanai/)
-- [kochapas Santibut]
-- [Kyle Bailey]
+- [kochapas Santibut](https://www.linkedin.com/in/kochapas-santibut-a768701a7/)
+- [Kyle Bailey](https://www.linkedin.com/in/kyle-alexander-bailey/)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
