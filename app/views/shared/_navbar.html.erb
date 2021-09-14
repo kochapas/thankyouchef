@@ -3,12 +3,12 @@
     <span class="navbar-brand mb-0 h1"><i class="fas fa-glass-cheers"></i> TY, Chef!</span>
   <% end %>
   <% if current_user.nil? %>
-    <p class="my-auto">Are you hungry?</p>
+    <p id="nav-welcome-text" class="my-auto">Are you hungry?</p>
     <% cl_image = cl_image_tag("https://dummyimage.com/25x25/fff/000&text=%3F",
       type: "fetch", class: "rounded-circle my-auto") %>
   <% else %>
     <% username = current_user.first_name || current_user.email.split('@')[0] %>
-    <p class="my-auto">Are you hungry, <%= username %>?</p>
+    <p id="nav-welcome-text" class="my-auto">Are you hungry, <%= username %>?</p>
     <% if current_user.photo.attached? %>
       <% cl_image = cl_image_tag(current_user.photo.key, class: "rounded-circle my-auto", width: 24, height: 24, aspect_ratio: "1.0", crop: :thumb) %>
     <% else %>

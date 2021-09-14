@@ -15,6 +15,20 @@
 // JS plugins
 @import "flatpickr/dist/flatpickr";
 
+@media (min-width: 0) { 
+  #nav-welcome-text {
+    display: none;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  #nav-welcome-text {
+    display: initial;
+  }
+}
+
+
+
 li {
   list-style: none;
 }
