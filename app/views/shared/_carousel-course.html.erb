@@ -1,4 +1,4 @@
-<div id="carouselCourseListControls" class="carousel slide p-2 mb-4 rounded carousel-movie-base" data-ride="carousel">
+<div id="carouselCourseList<%= card_count %>Controls" class="carousel slide p-2 mb-0 rounded carousel-movie-base" data-ride="carousel">
   <div class="carousel-inner">
     <%  courses.each_slice(card_count) do |s_course| %>
       <div class="carousel-item<%= courses.first == s_course[0] ? " active" : "" %>">
@@ -25,11 +25,11 @@
       </div>
     <% end %>
   </div>
-  <a class="carousel-control-prev small-carousel-btn" href="#carouselCourseListControls" role="button" data-slide="prev">
+  <a class="carousel-control-prev small-carousel-btn" href="#carouselCourseList<%= card_count %>Controls" role="button" data-slide="prev">
     <span class="" aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next small-carousel-btn" href="#carouselCourseListControls" role="button" data-slide="next">
+  <a class="carousel-control-next small-carousel-btn" href="#carouselCourseList<%= card_count %>Controls" role="button" data-slide="next">
     <span class="" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
     <span class="sr-only">Next</span>
   </a>

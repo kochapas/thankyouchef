@@ -15,6 +15,45 @@
 // JS plugins
 @import "flatpickr/dist/flatpickr";
 
+@media (min-width: 0) { 
+  #nav-welcome-text {
+    display: none;
+  }
+  .carousel-2 {
+    display: initial;
+  }
+  .carousel-4 {
+    display: none;
+  }
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  #booking-respond-row {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  #nav-welcome-text {
+    display: initial;
+  }
+  .carousel-2 {
+    display: none;
+  }
+  .carousel-4 {
+    display: initial;
+  }
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  #booking-respond-row {
+    flex-direction: row;
+  }
+}
+
+
+
 li {
   list-style: none;
 }
