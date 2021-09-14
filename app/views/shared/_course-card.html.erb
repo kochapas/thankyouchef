@@ -2,11 +2,17 @@
   <%= header_image_tag %>
   <div class="card-trip-infos">
     <div class="card-text-wrap text-truncate">
-      <h2><%= title %></h2>
-      <p class="text-capitalize"><em><%= sub_title %></em></p>
-      <p><%= description %></p>
+      <div class="d-flex flex-column justify-content-between h-100">
+        <div>
+          <h2><%= title %></h2>
+          <p class="text-capitalize"><em><%= sub_title %></em></p>
+          <p><%= description %></p>
+        </div>
+        <div class="w-100 text-right mt-1">
+          <h2 class="card-trip-text-padding"><%= status %></h2>
+        </div>
+      </div>
     </div>
-    <h2 class="card-trip-text-padding"><%= status %></h2>
     <%= user_image_tag %>
   </div>
 </div>
