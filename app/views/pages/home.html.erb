@@ -5,11 +5,15 @@
     <h3 class="mt-5">Browse our selection of courses...</h3>
     <form action="/courses">
       <div class="form-group row">
-        <div class="col-8">
+        <div class="col-12 col-md-7 col-lg-8 col-xl-9 mb-3">
           <input type="text" class="form-control" id="query" name="query" value="" placeholder="Southern Fried Chicken Course">
         </div>
-        <input type="submit" class="btn btn-light mr-3" value="Search now!">
-        <a href="/courses" class="btn btn-light d-flex align-items-center justify-content-center">Show all courses</a>
+        <div class="col-12 col-md-5 col-lg-4 col-xl-3">
+          <div class="d-flex justify-content-end">
+            <input type="submit" class="btn btn-light mr-3" value="Search now!">
+            <a href="/courses" class="btn btn-light d-flex align-items-center justify-content-center overflow-hidden">All courses</a>
+          </div>
+        </div>
       </div>
     </form>
   </div>
